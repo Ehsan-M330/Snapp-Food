@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="410.0" prefWidth="292.0" style="-fx-background-color: #03353e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FirstPageController">
+   <children>
+      <VBox layoutX="71.0" layoutY="154.0" prefHeight="102.0" prefWidth="150.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #229ED9;" text="Login">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #ff4555;" text="Register">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
