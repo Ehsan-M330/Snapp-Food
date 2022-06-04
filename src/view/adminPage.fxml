@@ -14,7 +14,7 @@
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#showRestaurants" prefHeight="30.0" prefWidth="70.0" text="restraunts" />
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#addRestaurant" prefHeight="30.0" prefWidth="70.0" text="Add" />
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
@@ -23,7 +23,7 @@
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#showCafes" prefHeight="30.0" prefWidth="70.0" text="cafes" />
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#addCafe" prefHeight="30.0" prefWidth="70.0" text="Add" />
                </children>
                <VBox.margin>
                   <Insets top="20.0" />

@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.Files;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -55,7 +54,7 @@ public class RegisterController extends Helper {
 
             //write in file
             String temp = name.getText() + " " + lastName.getText() + " "
-                    + phoneNumber.getText() + " " + email.getText() + " " + password.getText();
+                    + phoneNumber.getText() + " " + email.getText() + " " + password.getText() + " " +"0";
             Files.writeCustomerInFile(temp);
         }
     }
