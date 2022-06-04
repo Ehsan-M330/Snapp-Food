@@ -26,8 +26,12 @@ public class AdminPageController extends Helper{
     public void showDeliveries(ActionEvent event){
 
     }
-    public void addDelivery(ActionEvent event){
-
+    public void addDelivery(ActionEvent event) throws IOException{
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("..\\view\\addDelivery.fxml"));
+        loader.load();
+        getStage().setScene(new Scene(loader.getRoot()));
+        AddDeliveryController addDeliveryController=loader.getController();
+        addDeliveryController.setStage(getStage());
     }
 
 

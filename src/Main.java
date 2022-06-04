@@ -4,12 +4,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import java.io.FileWriter;
 import java.io.IOException;
 
-import javax.swing.Icon;
-
 public class Main extends Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        //make sure files exists
+        FileWriter file1=new FileWriter("customers.txt",true);
+        file1.close();
+        FileWriter file2 = new FileWriter("restaurants.txt", true);
+        file2.close();
+        FileWriter file3 = new FileWriter("cafes.txt", true);
+        file3.close();
+        FileWriter file4 = new FileWriter("deliveries.txt", true);
+        file4.close();
         launch(args);
     }
 

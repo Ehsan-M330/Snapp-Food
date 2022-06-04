@@ -12,14 +12,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-
-public class RegisterController extends Helper {
+public class AddDeliveryController extends Helper {
     @FXML
-    TextField email, name, lastName, phoneNumber, password;
+    TextField name, lastName, phoneNumber, email, password;
     @FXML
     Label label;
 
-    public void register(ActionEvent event) throws IOException {
+    public void add(ActionEvent event) throws IOException {
         if (!isUserUseCorrectForm(name.getText())) {
             label.setText("Name incorrect");
         } else if (!isUserUseCorrectForm(lastName.getText())) {
@@ -56,7 +55,7 @@ public class RegisterController extends Helper {
             //write in file
             String temp = name.getText() + " " + lastName.getText() + " "
                     + phoneNumber.getText() + " " + email.getText() + " " + password.getText();
-            Files.writeCustomerInFile(temp);
+            Files.writeDeliveryInFile(temp);
         }
     }
 
@@ -78,14 +77,12 @@ public class RegisterController extends Helper {
         return pat.matcher(str).matches();
     }
 
-
     @Override
     public void back(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\view\\firstPage.fxml"));
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("..\\view\\adminPage.fxml"));
         loader.load();
         getStage().setScene(new Scene(loader.getRoot()));
-        FirstPageController firstPageController = loader.getController();
-        firstPageController.setStage(getStage());
-
+        AdminPageController adminPageController=loader.getController();
+        adminPageController.setStage(getStage());
     }
 }
