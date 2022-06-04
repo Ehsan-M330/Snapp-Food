@@ -4,9 +4,31 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+
 import java.io.IOException;
 
 public class AdminPageController extends Helper{
+
+    public void showRestaurants(ActionEvent event){
+
+    }
+    public void addRestaurant(ActionEvent event){
+
+    }
+
+    public void showCafes(ActionEvent event){
+
+    }
+    public void addCafe(ActionEvent event){
+
+    }
+
+    public void showDeliveries(ActionEvent event){
+
+    }
+    public void addDelivery(ActionEvent event){
+
+    }
 
 
 

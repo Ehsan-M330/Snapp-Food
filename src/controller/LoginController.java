@@ -26,6 +26,8 @@ public class LoginController extends Helper {
             getStage().setScene(new Scene(loader.getRoot()));
             AdminPageController adminPageController = loader.getController();
             adminPageController.setStage(getStage());
+        }else{
+
         }
 
 
