@@ -20,7 +20,7 @@ public class Main extends Application {
             loader.load();
             stage.setScene(new Scene(loader.getRoot()));
             stage.setTitle("Snapp Food");
-            Image icon = new Image("/Icons/Food.png");
+            Image icon = new Image("/Icons/snapp-food.png");
             stage.getIcons().add(icon);
             FirstPageController firstPageController=loader.getController();
             firstPageController.setStage(stage);
