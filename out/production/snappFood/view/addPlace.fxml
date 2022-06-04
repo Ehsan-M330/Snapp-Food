@@ -12,20 +12,25 @@
 
 <AnchorPane prefHeight="622.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPlaceController">
    <children>
-      <Label layoutX="137.0" layoutY="26.0" prefHeight="36.0" prefWidth="90.0" text="Label" />
-      <VBox layoutX="69.0" layoutY="100.0" prefHeight="72.0" prefWidth="183.0">
+      <Label fx:id="titleLabel" alignment="CENTER" layoutX="315.0" layoutY="24.0" prefHeight="36.0" prefWidth="150.0" />
+      <VBox alignment="TOP_CENTER" layoutX="56.0" layoutY="439.0" prefHeight="130.0" prefWidth="242.0">
          <children>
-            <TextField promptText="Name" />
-            <TextField promptText="Location" />
+            <TextField fx:id="placeName" promptText="Name" />
+            <TextField fx:id="placeLocation" promptText="Location">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></TextField>
+            <Label fx:id="placeLabel" alignment="CENTER" prefHeight="24.0" prefWidth="183.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
+            <Button mnemonicParsing="false" onAction="#done" prefHeight="26.0" prefWidth="97.0" text="Done">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
-      <ChoiceBox fx:id="choiceBox" layoutX="32.0" layoutY="251.0" prefWidth="150.0" />
-      <HBox layoutX="32.0" layoutY="277.0" prefHeight="36.0" prefWidth="257.0">
-         <children>
-            <TextField fx:id="itemName" promptText="name" />
-            <TextField fx:id="itemPrice" prefHeight="26.0" prefWidth="90.0" promptText="price" />
-         </children>
-      </HBox>
       <VBox alignment="TOP_CENTER" layoutX="425.0" layoutY="42.0" prefHeight="538.0" prefWidth="295.0">
          <children>
             <ScrollPane hbarPolicy="NEVER" prefHeight="150.0" prefWidth="300.0">
@@ -54,7 +59,33 @@
             </ScrollPane>
          </children>
       </VBox>
-      <Button layoutX="118.0" layoutY="340.0" mnemonicParsing="false" onAction="#add" text="Add" />
-      <Label fx:id="itemLabel" layoutX="64.0" layoutY="313.0" prefHeight="18.0" prefWidth="193.0" />
+      <Button layoutX="43.0" layoutY="30.0" mnemonicParsing="false" onAction="#back" text="back" />
+      <Label fx:id="type1Label" alignment="CENTER" layoutX="356.0" layoutY="115.0" prefHeight="25.0" prefWidth="70.0" />
+      <Label fx:id="type2Label" alignment="CENTER" layoutX="356.0" layoutY="282.0" prefHeight="25.0" prefWidth="70.0" />
+      <Label fx:id="type3Label" alignment="CENTER" layoutX="355.0" layoutY="455.0" prefHeight="25.0" prefWidth="70.0" />
+      <VBox alignment="CENTER" layoutX="56.0" layoutY="159.0" prefHeight="200.0" prefWidth="242.0">
+         <children>
+            <ChoiceBox fx:id="choiceBox" prefWidth="150.0" />
+            <HBox prefHeight="36.0" prefWidth="243.0">
+               <children>
+                  <TextField fx:id="itemName" promptText="name" />
+                  <TextField fx:id="itemPrice" prefHeight="26.0" prefWidth="90.0" promptText="price" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <Label fx:id="itemLabel" prefHeight="26.0" prefWidth="222.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="62.0" text="Add">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
