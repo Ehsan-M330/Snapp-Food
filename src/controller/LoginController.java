@@ -6,8 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import model.Customer;
 import model.Files;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,6 +43,15 @@ public class LoginController extends Helper {
                     getStage().setScene(new Scene(loader.getRoot()));
                     CustomerPageController customerPageController=loader.getController();
                     customerPageController.setStage(getStage());
+                    Customer customer=new Customer();
+                    customer.setName(temp[0]);
+                    customer.setLastName(temp[1]);
+                    customer.setPassword(temp[2]);
+                    customer.setEmail(temp[3]);
+                    customer.setPassword(temp[4]);
+                    customer.setMoney(Double.parseDouble(temp[5]));
+                    customerPageController.setCustomer(customer);
+                    customerPageController.start();
                     return;
                 }
             }

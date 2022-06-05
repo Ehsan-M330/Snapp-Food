@@ -24,7 +24,7 @@ public class Files {
         writer.close();
     }
 
-    public static ArrayList<String> cafesFile() throws IOException {
+    public static ArrayList<String> readCafesFile() throws IOException {
         ArrayList<String> cafesFileInformation = new ArrayList<>();
         Scanner reader = new Scanner(new File("cafes.txt"));
         while (reader.hasNextLine()) {

@@ -13,13 +13,6 @@ import java.io.IOException;
 public class FirstPageController {
     private Stage stage;
 
-    @FXML
-    ImageView image;
-
-    public void setImage(ImageView image) {
-        this.image = image;
-    }
-
     public Stage getStage() {
         return stage;
     }

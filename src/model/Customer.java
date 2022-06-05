@@ -1,13 +1,13 @@
 package model;
 
 public class Customer extends Person{
-    int money;
+    double money;
 
-    public int getMoney() {
+    public double getMoney() {
         return money;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(double money) {
         this.money = money;
     }
 }

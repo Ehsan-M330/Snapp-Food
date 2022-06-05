@@ -71,7 +71,7 @@
             </DropShadow>
          </effect>
       </VBox>
-      <ImageView fx:id="image" fitHeight="128.0" fitWidth="110.0">
+      <ImageView fitHeight="128.0" fitWidth="110.0">
          <image>
             <Image url="@/resources/images/Snap-Food-1.png" />
          </image>
