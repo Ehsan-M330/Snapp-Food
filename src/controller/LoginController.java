@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import model.Files;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,8 +19,6 @@ public class LoginController extends Helper {
     TextField userName, password;
     @FXML
     Label label;
-
-
 
     public void login(ActionEvent event) throws IOException {
         //check for admin entry

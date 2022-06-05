@@ -13,18 +13,18 @@
 <AnchorPane prefHeight="622.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPlaceController">
    <children>
       <Label fx:id="titleLabel" alignment="CENTER" layoutX="315.0" layoutY="24.0" prefHeight="36.0" prefWidth="150.0" />
-      <VBox alignment="TOP_CENTER" layoutX="56.0" layoutY="439.0" prefHeight="130.0" prefWidth="242.0">
+      <VBox alignment="TOP_CENTER" layoutX="56.0" layoutY="439.0" prefHeight="150.0" prefWidth="242.0">
          <children>
-            <TextField fx:id="placeName" promptText="Name" />
-            <TextField fx:id="placeLocation" promptText="Location">
+            <TextField fx:id="placeName" prefHeight="30.0" prefWidth="230.0" promptText="Name" />
+            <TextField fx:id="placeLocation" prefHeight="30.0" prefWidth="230.0" promptText="Location">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></TextField>
-            <Label fx:id="placeLabel" alignment="CENTER" prefHeight="24.0" prefWidth="183.0">
+            <Label fx:id="placeLabel" alignment="CENTER" prefHeight="30.0" prefWidth="230.0">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></Label>
-            <Button mnemonicParsing="false" onAction="#done" prefHeight="26.0" prefWidth="97.0" text="Done">
+            <Button mnemonicParsing="false" onAction="#done" prefHeight="30.0" prefWidth="97.0" text="Done">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -65,22 +65,22 @@
       <Label fx:id="type3Label" alignment="CENTER" layoutX="355.0" layoutY="455.0" prefHeight="25.0" prefWidth="70.0" />
       <VBox alignment="CENTER" layoutX="56.0" layoutY="159.0" prefHeight="200.0" prefWidth="242.0">
          <children>
-            <ChoiceBox fx:id="choiceBox" prefWidth="150.0" />
+            <ChoiceBox fx:id="choiceBox" prefHeight="30.0" prefWidth="150.0" />
             <HBox prefHeight="36.0" prefWidth="243.0">
                <children>
-                  <TextField fx:id="itemName" promptText="name" />
-                  <TextField fx:id="itemPrice" prefHeight="26.0" prefWidth="90.0" promptText="price" />
+                  <TextField fx:id="itemName" prefHeight="30.0" prefWidth="150.0" promptText="name" />
+                  <TextField fx:id="itemPrice" prefHeight="30.0" prefWidth="100.0" promptText="price" />
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </HBox>
-            <Label fx:id="itemLabel" prefHeight="26.0" prefWidth="222.0">
+            <Label fx:id="itemLabel" alignment="CENTER" prefHeight="30.0" prefWidth="230.0">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="62.0" text="Add">
+            <Button mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="62.0" text="Add">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>

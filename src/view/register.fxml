@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="426.0" prefWidth="421.0" style="-fx-background-color: #03353e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
    <children>
-      <Button layoutX="9.0" layoutY="8.0" mnemonicParsing="false" onAction="#back" prefHeight="37.0" prefWidth="46.0" text="&lt;-" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="8.0" />
+      <Button layoutX="9.0" layoutY="8.0" mnemonicParsing="false" onAction="#back" opacity="0.0" prefHeight="47.0" prefWidth="59.0" text="&lt;-" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="8.0" />
       <VBox layoutX="85.0" layoutY="45.0" prefHeight="307.0" prefWidth="245.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="90.4" AnchorPane.topAnchor="45.0">
          <children>
             <TextField fx:id="name" promptText="name">
@@ -79,9 +79,9 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <ImageView disable="true" fitHeight="57.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView disable="true" fitHeight="47.0" fitWidth="59.0" layoutX="8.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="10.0">
          <image>
-            <Image url="@../images/back.png" />
+            <Image url="@../view/images/back.png" />
          </image>
       </ImageView>
    </children>

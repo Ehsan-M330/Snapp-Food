@@ -71,9 +71,9 @@
             </DropShadow>
          </effect>
       </VBox>
-      <ImageView fitHeight="113.0" fitWidth="107.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fx:id="image" fitHeight="128.0" fitWidth="110.0">
          <image>
-            <Image url="file:/C:/Users/M.A.B/Documents/GitHub/Snapp-Food/src/view/images/Snap-Food-1.png" />
+            <Image url="@../images/Snap-Food-1.png" />
          </image>
       </ImageView>
    </children>
