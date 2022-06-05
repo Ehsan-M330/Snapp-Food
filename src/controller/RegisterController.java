@@ -20,15 +20,15 @@ public class RegisterController extends Helper {
 
     public void register(ActionEvent event) throws IOException {
         if (!isUserUseCorrectForm(name.getText())) {
-            label.setText("Name incorrect");
+            label.setText("incorrect Name...");
         } else if (!isUserUseCorrectForm(lastName.getText())) {
-            label.setText("Last Name incorrect");
+            label.setText("incorrect Last Name...");
         } else if (!isPhoneNumberCorrect(phoneNumber.getText())) {
-            label.setText("Phone Number incorrect");
+            label.setText("incorrect Phone Number...");
         } else if (!isEmailCorrect(email.getText())) {
-            label.setText("Email incorrect");
+            label.setText("invalid Email...");
         } else if (!isUserUseCorrectForm(password.getText())) {
-            label.setText("Password incorrect");
+            label.setText("incorrect Password...");
         } else {
             //check for unrepeated email
             ArrayList<String> customersInformation;
