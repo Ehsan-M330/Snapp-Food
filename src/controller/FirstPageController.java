@@ -20,9 +20,6 @@ public class FirstPageController {
         this.image = image;
     }
 
-    
-    
-
     public Stage getStage() {
         return stage;
     }

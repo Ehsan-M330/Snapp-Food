@@ -81,7 +81,7 @@
       </Button>
       <ImageView disable="true" fitHeight="47.0" fitWidth="59.0" layoutX="8.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="10.0">
          <image>
-            <Image url="@../view/images/back.png" />
+            <Image url="@../resources/images/back.png" />
          </image>
       </ImageView>
    </children>

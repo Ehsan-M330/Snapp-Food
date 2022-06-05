@@ -1,10 +1,8 @@
 import controller.FirstPageController;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -31,7 +29,7 @@ public class Main extends Application {
             loader.load();
             stage.setScene(new Scene(loader.getRoot()));
             stage.setTitle("Snapp Food");
-            Image icon = new Image("/view/images/Food.png");
+            Image icon = new Image("resources//images/Food.png");
             stage.getIcons().add(icon);
             FirstPageController firstPageController=loader.getController();
             firstPageController.setStage(stage);

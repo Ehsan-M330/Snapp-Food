@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
@@ -18,7 +19,7 @@
    <children>
       <ImageView disable="true" fitHeight="47.0" fitWidth="86.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../view/images/back.png" />
+            <Image url="@../resources/images/back.png" />
          </image></ImageView>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" opacity="0.0" prefHeight="47.0" prefWidth="86.0" text="&lt;-" />
       <VBox alignment="TOP_CENTER" layoutX="51.0" layoutY="106.0" prefHeight="198.0" prefWidth="189.0">
@@ -60,11 +61,11 @@
                         <Shadow />
                      </bumpInput>
                      <light>
-<!--                        <Light.Distant>-->
-<!--                           <color>-->
-<!--                              <Color green="1.0" blue="0.06666667014360428" />-->
-<!--                           </color>-->
-<!--                        </Light.Distant>-->
+                        <Light.Distant>
+                           <color>
+                              <Color green="1.0" blue="0.06666667014360428" />
+                           </color>
+                        </Light.Distant>
                      </light>
                   </Lighting>
                </effect>
