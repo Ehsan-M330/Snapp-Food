@@ -1,7 +1,16 @@
 package model;
 
 public class Place {
-    String location,name;
+    private String location,name;
+    private int itemsNumber;
+
+    public int getItemsNumber() {
+        return itemsNumber;
+    }
+
+    public void setItemsNumber(int itemsNumber) {
+        this.itemsNumber = itemsNumber;
+    }
 
     public String getLocation() {
         return location;

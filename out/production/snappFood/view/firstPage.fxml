@@ -76,6 +76,11 @@
             <Image url="@/resources/images/Snap-Food-1.png" />
          </image>
       </ImageView>
+      <Button layoutX="74.0" layoutY="304.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="150.0" text="Exit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
    <effect>
       <InnerShadow choke="0.65" height="49.0" radius="24.0175" width="49.07" />

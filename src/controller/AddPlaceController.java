@@ -9,10 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import model.CafeItems;
-import model.Files;
-import model.RestaurantItems;
-import model.TypeOfPlace;
+import model.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -101,24 +99,40 @@ public class AddPlaceController extends Helper {
         }else if(items.size()==0){
             placeLabel.setText("First add some items");
         }else{
-            // TODO: 6/5/2022 check for unrepeatd restaurant name
+            // TODO: 6/5/2022 check for unrepeated restaurant name
 
-            //write place information into file
-            //first write place's name,location and items number
-            String temp= placeName.getText()+" "+ placeLocation.getText()+" "+items.size()+"\n";
-            //then write items information
-            for(int i=0;i<items.size();i++){
-                if(i==items.size()-1){
-                    temp+=items.get(i);
-                }else{
-                    temp+=items.get(i)+"\n";
-                }
-            }
+            //add place
             if(typeOfPlace.equals(TypeOfPlace.RESTAURANT)){
-                Files.writeRestaurantInFile(temp);
+                Restaurant restaurant=new Restaurant();
+                restaurant.setName(placeName.getText());
+                restaurant.setLocation(placeLocation.getText());
+                restaurant.setItemsNumber(items.size());
+                restaurant.setItems(items);
+                Information.setRestaurantInformation(restaurant);
             }else{
-                Files.writeCafeInFile(temp);
+                Cafe cafe=new Cafe();
+                cafe.setName(placeName.getText());
+                cafe.setLocation(placeLocation.getText());
+                cafe.setItemsNumber(items.size());
+                cafe.setItems(items);
+                Information.setCafeInformation(cafe);
             }
+//            //write place information into file
+//            //first write place's name,location and items number
+//            String temp= placeName.getText()+" "+ placeLocation.getText()+" "+items.size()+"\n";
+//            //then write items information
+//            for(int i=0;i<items.size();i++){
+//                if(i==items.size()-1){
+//                    temp+=items.get(i);
+//                }else{
+//                    temp+=items.get(i)+"\n";
+//                }
+//            }
+//            if(typeOfPlace.equals(TypeOfPlace.RESTAURANT)){
+//                Files.writeRestaurantInFile(temp);
+//            }else{
+//                Files.writeCafeInFile(temp);
+//            }
         }
     }
 

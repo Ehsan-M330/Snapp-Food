@@ -6,7 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import model.Files;
+import model.Customer;
+import model.Delivery;
+import model.Information;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,42 +22,46 @@ public class AddDeliveryController extends Helper {
 
     public void add(ActionEvent event) throws IOException {
         if (!isUserUseCorrectForm(name.getText())) {
-            label.setText("Name incorrect");
+            label.setText("incorrect Name...");
         } else if (!isUserUseCorrectForm(lastName.getText())) {
-            label.setText("Last Name incorrect");
+            label.setText("incorrect Last Name...");
         } else if (!isPhoneNumberCorrect(phoneNumber.getText())) {
-            label.setText("Phone Number incorrect");
+            label.setText("incorrect Phone Number...");
         } else if (!isEmailCorrect(email.getText())) {
-            label.setText("Email incorrect");
+            label.setText("invalid Email...");
         } else if (!isUserUseCorrectForm(password.getText())) {
-            label.setText("Password incorrect");
+            label.setText("incorrect Password...");
         } else {
             //check for unrepeated email
-            ArrayList<String> customersInformation;
-            customersInformation = Files.readCustomersFile();
-            ArrayList<String> deliveriesInformation;
-            deliveriesInformation = Files.readDeliveriesFile();
+            ArrayList<Customer> customers=Information.getCustomersInformation();
+            ArrayList<Delivery> deliveries=Information.getDeliveriesInformation();
 
-            for(int i=0;i<customersInformation.size();i++){
-                String[] information= customersInformation.get(i).split(" ");
-                if(information[3].equals(email.getText())){
+            for(int i=0;i<customers.size();i++){
+                if(customers.get(i).getEmail().equals(email.getText())){
                     label.setText("This Email not available");
                     return;
                 }
             }
 
-            for(int i=0;i<deliveriesInformation.size();i++){
-                String[] information= deliveriesInformation.get(i).split(" ");
-                if(information[3].equals(email.getText())){
+            for(int i=0;i<deliveries.size();i++){
+                if(deliveries.get(i).getEmail().equals(email.getText())){
                     label.setText("This Email not available");
                     return;
                 }
             }
 
-            //write in file
-            String temp = name.getText() + " " + lastName.getText() + " "
-                    + phoneNumber.getText() + " " + email.getText() + " " + password.getText();
-            Files.writeDeliveryInFile(temp);
+            //add new delivery
+            Delivery delivery=new Delivery();
+            delivery.setName(name.getText());
+            delivery.setLastName(lastName.getText());
+            delivery.setPhoneNumber(phoneNumber.getText());
+            delivery.setEmail(email.getText());
+            delivery.setPassword(password.getText());
+            Information.setDeliveryInformation(delivery);
+//            write in file
+//            String temp = name.getText() + " " + lastName.getText() + " "
+//                    + phoneNumber.getText() + " " + email.getText() + " " + password.getText();
+//            Files.writeDeliveryInFile(temp);
         }
     }
 

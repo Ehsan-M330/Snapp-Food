@@ -1,12 +1,11 @@
 package controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import model.Files;
+import model.Information;
 
 import java.io.IOException;
 
@@ -31,6 +30,18 @@ public class FirstPageController {
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    public void exit(ActionEvent event) throws IOException {
+        //write information in file
+
+        //write customer information
+        Files.writeCustomersInFile(Information.getCustomersInformation());
+
+        //write delivery information
+        Files.writeDeliveriesInFile(Information.getDeliveriesInformation());
+        //exit
+        System.exit(0);
     }
 
     public void register(ActionEvent event){

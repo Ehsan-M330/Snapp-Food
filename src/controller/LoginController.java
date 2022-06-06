@@ -7,7 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.Customer;
-import model.Files;
+import model.Delivery;
+import model.Information;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -28,41 +30,31 @@ public class LoginController extends Helper {
             AdminPageController adminPageController = loader.getController();
             adminPageController.setStage(getStage());
         }else{
-            //get information from files
-            ArrayList<String>customersInformation;
-            customersInformation= Files.readCustomersFile();
-            ArrayList<String>deliveriesInformation;
-            deliveriesInformation=Files.readDeliveriesFile();
+            //get information
+            ArrayList<Customer>customers= Information.getCustomersInformation();
+            ArrayList<Delivery>deliveries= Information.getDeliveriesInformation();
 
             //check
-            for(int i=0;i<customersInformation.size();i++){
-                String[] temp=customersInformation.get(i).split(" ");
-                if(temp[3].equals(userName.getText()) && temp[4].equals(password.getText())){
+            for(int i=0;i<customers.size();i++){
+                if(customers.get(i).getEmail().equals(userName.getText()) && customers.get(i).getPassword().equals(password.getText())){
                     FXMLLoader loader=new FXMLLoader(getClass().getResource("..\\view\\customerPage.fxml"));
                     loader.load();
                     getStage().setScene(new Scene(loader.getRoot()));
                     CustomerPageController customerPageController=loader.getController();
                     customerPageController.setStage(getStage());
-                    Customer customer=new Customer();
-                    customer.setName(temp[0]);
-                    customer.setLastName(temp[1]);
-                    customer.setPassword(temp[2]);
-                    customer.setEmail(temp[3]);
-                    customer.setPassword(temp[4]);
-                    customer.setMoney(Double.parseDouble(temp[5]));
-                    customerPageController.setCustomer(customer);
+                    customerPageController.setCustomer(customers.get(i));
                     customerPageController.start();
                     return;
                 }
             }
-            for(int i=0;i<deliveriesInformation.size();i++){
-                String[] temp=deliveriesInformation.get(i).split(" ");
-                if(temp[3].equals(userName.getText()) && temp[4].equals(password.getText())){
+            for(int i=0;i<deliveries.size();i++){
+                if(deliveries.get(i).getEmail().equals(userName.getText()) && deliveries.get(i).getPassword().equals(password.getText())){
                     FXMLLoader loader=new FXMLLoader(getClass().getResource("..\\view\\deliveryPage.fxml"));
                     loader.load();
                     getStage().setScene(new Scene(loader.getRoot()));
                     DeliveryPageController deliveryPageController=loader.getController();
                     deliveryPageController.setStage(getStage());
+                    // TODO: 6/6/2022 add delivery page
                     return;
                 }
             }

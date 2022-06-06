@@ -8,68 +8,119 @@ import java.util.Scanner;
 
 public class Files {
 
-    public static ArrayList<String> readRestaurantsFile() throws IOException {
-        ArrayList<String> restaurantsFileInformation = new ArrayList<>();
+    public static void readRestaurantsFile() throws IOException,NullPointerException {
         Scanner reader = new Scanner(new File("restaurants.txt"));
         while (reader.hasNextLine()) {
-            restaurantsFileInformation.add(reader.nextLine());
+            String[] temp=reader.nextLine().split(" ");
+            Restaurant restaurant =new Restaurant();
+            restaurant.setName(temp[0]);
+            restaurant.setLocation(temp[1]);
+            restaurant.setItemsNumber(Integer.parseInt(temp[2]));
+            ArrayList<String>items=new ArrayList<>();
+            for(int i=0;i<restaurant.getItemsNumber();i++){
+                items.add(reader.nextLine());
+            }
+            restaurant.setItems(items);
+            Information.setRestaurantInformation(restaurant);
         }
         reader.close();
-        return restaurantsFileInformation;
     }
 
-    public static void writeRestaurantInFile(String information) throws IOException {
-        FileWriter writer = new FileWriter("restaurants.txt", true);
-        writer.write(information + "\n");
+    public static void writeRestaurantInFile(ArrayList<Restaurant> information) throws IOException {
+        FileWriter writer = new FileWriter("restaurants.txt");
+        for (int i = 0; i < information.size(); i++) {
+            writer.write(information.get(i).getName() + " " +
+                    information.get(i).getLocation() + " " + information.get(i).getItemsNumber() + "\n");
+
+            for(int t=0;t<information.get(i).getItemsNumber();t++){
+                writer.write(information.get(i).getItems().get(t)+"\n");
+            }
+
+        }
         writer.close();
     }
 
-    public static ArrayList<String> readCafesFile() throws IOException {
-        ArrayList<String> cafesFileInformation = new ArrayList<>();
+    public static void readCafesFile() throws IOException {
         Scanner reader = new Scanner(new File("cafes.txt"));
         while (reader.hasNextLine()) {
-            cafesFileInformation.add(reader.nextLine());
+            String[] temp=reader.nextLine().split(" ");
+            Cafe cafe =new Cafe();
+            cafe.setName(temp[0]);
+            cafe.setLocation(temp[1]);
+            cafe.setItemsNumber(Integer.parseInt(temp[2]));
+            ArrayList<String>items=new ArrayList<>();
+            for(int i=0;i<cafe.getItemsNumber();i++){
+                items.add(reader.nextLine());
+            }
+            cafe.setItems(items);
+            Information.setCafeInformation(cafe);
         }
         reader.close();
-        return cafesFileInformation;
+
     }
 
-    public static void writeCafeInFile(String information) throws IOException {
-        FileWriter writer = new FileWriter("cafes.txt", true);
-        writer.write(information + "\n");
+    public static void writeCafeInFile(ArrayList<Cafe> information) throws IOException,NullPointerException {
+        FileWriter writer = new FileWriter("cafes.txt");
+        for (int i = 0; i < information.size(); i++) {
+            writer.write(information.get(i).getName() + " " +
+                    information.get(i).getLocation() + " " + information.get(i).getItemsNumber() + "\n");
+
+            for(int t=0;t<information.get(i).getItemsNumber();t++){
+                writer.write(information.get(i).getItems().get(t)+"\n");
+            }
+
+        }
         writer.close();
     }
 
-    public static ArrayList<String> readCustomersFile() throws IOException {
-        ArrayList<String> customersFileInformation=new ArrayList<>();
-        Scanner reader=new Scanner(new File("customers.txt"));
-        while (reader.hasNextLine()){
-            customersFileInformation.add(reader.nextLine());
+    public static void readCustomersFile() throws IOException, NullPointerException {
+        Scanner reader = new Scanner(new File("customers.txt"));
+        while (reader.hasNextLine()) {
+            String[] temp = reader.nextLine().split(" ");
+            Customer customer = new Customer();
+            customer.setName(temp[0]);
+            customer.setLastName(temp[1]);
+            customer.setPhoneNumber(temp[2]);
+            customer.setEmail(temp[3]);
+            customer.setPassword(temp[4]);
+            Information.setCustomerInformation(customer);
         }
         reader.close();
-        return customersFileInformation;
     }
 
-    public static void writeCustomerInFile(String information) throws IOException {
-        FileWriter writer = new FileWriter("customers.txt", true);
-        writer.write(information + "\n");
-        writer.close();
+    public static void writeCustomersInFile(ArrayList<Customer> information) throws IOException {
+        FileWriter writer = new FileWriter("customers.txt");
+        for (int i = 0; i < information.size(); i++) {
+            writer.write(information.get(i).getName() + " " + information.get(i).getLastName() + " "
+                    + information.get(i).getPhoneNumber() + " " + information.get(i).getEmail()
+                    + " " + information.get(i).getPassword() + " " + information.get(i).getMoney() + "\n");
+            writer.close();
+        }
+
     }
 
-    public static ArrayList<String> readDeliveriesFile() throws IOException {
-        ArrayList<String> deliveriesFileInformation=new ArrayList<>();
-        Scanner reader=new Scanner(new File("deliveries.txt"));
-        while (reader.hasNextLine()){
-            deliveriesFileInformation.add(reader.nextLine());
-
+    public static void readDeliveriesFile() throws IOException, NullPointerException {
+        Scanner reader = new Scanner(new File("deliveries.txt"));
+        while (reader.hasNextLine()) {
+            String[] temp = reader.nextLine().split(" ");
+            Delivery delivery = new Delivery();
+            delivery.setName(temp[0]);
+            delivery.setLastName(temp[1]);
+            delivery.setPhoneNumber(temp[2]);
+            delivery.setEmail(temp[3]);
+            delivery.setPassword(temp[4]);
+            Information.setDeliveryInformation(delivery);
         }
         reader.close();
-        return deliveriesFileInformation;
     }
 
-    public static void writeDeliveryInFile(String information) throws IOException {
-        FileWriter writer = new FileWriter("deliveries.txt", true);
-        writer.write(information + "\n");
+    public static void writeDeliveriesInFile(ArrayList<Delivery> information) throws IOException {
+        FileWriter writer = new FileWriter("deliveries.txt");
+        for (int i = 0; i < information.size(); i++) {
+            writer.write(information.get(i).getName() + " " + information.get(i).getLastName() + " "
+                    + information.get(i).getPhoneNumber() + " " + information.get(i).getEmail()
+                    + " " + information.get(i).getPassword() + "\n");
+        }
         writer.close();
     }
 }

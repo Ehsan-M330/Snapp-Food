@@ -1,7 +1,6 @@
 package controller;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,13 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import model.Cafe;
-import model.Customer;
-import model.Files;
-import model.Restaurant;
-
+import model.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -26,62 +20,11 @@ public class CustomerPageController extends Helper {
         this.customer = customer;
     }
 
-    ArrayList<Restaurant>restaurants=new ArrayList<>();
-    ArrayList<Cafe>cafes=new ArrayList<>();
+    //get restaurants and cafes information
+    ArrayList<Restaurant>restaurants=Information.getRestaurantsInformation();
+    ArrayList<Cafe>cafes=Information.getCafesInformation();
     public void start() throws IOException {
         setMoneyLabel();
-        //read restaurants and cafes from file
-        ArrayList<String>restaurantFileInformation;
-        restaurantFileInformation=Files.readRestaurantsFile();
-        for(int i=0;i<restaurantFileInformation.size();i++){
-            String[] temp=restaurantFileInformation.get(i).split(" ");
-            //temp[0] == restaurant name
-            //temp[1] == restaurant location
-            //temp[2] == restaurant items number
-            Restaurant restaurant=new Restaurant();
-            restaurant.setName(temp[0]);
-            restaurant.setLocation(temp[1]);
-            ArrayList<String>restaurantItems=new ArrayList<>();
-            i++;
-            for(int t=0;t<Integer.parseInt(temp[2]);t++,i++){
-                restaurantItems.add(restaurantFileInformation.get(i));
-            }
-            restaurant.setItems(restaurantItems);
-            restaurants.add(restaurant);
-
-            if(i==restaurantFileInformation.size()){
-                break;
-            }else{
-                i--;
-            }
-        }
-
-        ArrayList<String>cafeFileInformation;
-        cafeFileInformation=Files.readCafesFile();
-        for(int i=0;i<cafeFileInformation.size();i++){
-            String[] temp=cafeFileInformation.get(i).split(" ");
-            //temp[0] == cafe name
-            //temp[1] == cafe location
-            //temp[2] == cafe items number
-            Cafe cafe=new Cafe();
-            cafe.setName(temp[0]);
-            cafe.setLocation(temp[1]);
-            ArrayList<String>cafeItems=new ArrayList<>();
-            i++;
-            for(int t=0;t<Integer.parseInt(temp[2]);t++,i++){
-                cafeItems.add(cafeFileInformation.get(i));
-            }
-            cafe.setItems(cafeItems);
-            cafes.add(cafe);
-            if(i==cafeFileInformation.size()){
-                break;
-            }else{
-                i--;
-            }
-
-        }
-
-
     }
     @FXML
     TextField locationTextField;

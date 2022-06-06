@@ -6,7 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import model.Files;
+import model.Customer;
+import model.Delivery;
+import model.Information;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -31,31 +34,36 @@ public class RegisterController extends Helper {
             label.setText("incorrect Password...");
         } else {
             //check for unrepeated email
-            ArrayList<String> customersInformation;
-            customersInformation = Files.readCustomersFile();
-            ArrayList<String> deliveriesInformation;
-            deliveriesInformation = Files.readDeliveriesFile();
+            ArrayList<Customer> customers=Information.getCustomersInformation();
+            ArrayList<Delivery> deliveries=Information.getDeliveriesInformation();
 
-            for(int i=0;i<customersInformation.size();i++){
-                String[] information= customersInformation.get(i).split(" ");
-                if(information[3].equals(email.getText())){
+            for(int i=0;i<customers.size();i++){
+                if(customers.get(i).getEmail().equals(email.getText())){
                     label.setText("This Email not available");
                     return;
                 }
             }
 
-            for(int i=0;i<deliveriesInformation.size();i++){
-                String[] information= deliveriesInformation.get(i).split(" ");
-                if(information[3].equals(email.getText())){
+            for(int i=0;i<deliveries.size();i++){
+                if(deliveries.get(i).getEmail().equals(email.getText())){
                     label.setText("This Email not available");
                     return;
                 }
             }
 
-            //write in file
-            String temp = name.getText() + " " + lastName.getText() + " "
-                    + phoneNumber.getText() + " " + email.getText() + " " + password.getText() + " " +"0";
-            Files.writeCustomerInFile(temp);
+            //add new customer
+            Customer customer=new Customer();
+            customer.setName(name.getText());
+            customer.setLastName(lastName.getText());
+            customer.setPhoneNumber(phoneNumber.getText());
+            customer.setEmail(email.getText());
+            customer.setPassword(password.getText());
+            customer.setMoney(0);
+            Information.setCustomerInformation(customer);
+//            String temp = name.getText() + " " + lastName.getText() + " "
+//                    + phoneNumber.getText() + " " + email.getText() + " " + password.getText() + " " +"0";
+
+//            Files.writeCustomerInFile(temp);
         }
     }
 

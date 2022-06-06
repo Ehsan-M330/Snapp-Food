@@ -18,7 +18,12 @@ public class Main extends Application {
         file3.close();
         FileWriter file4 = new FileWriter("deliveries.txt", true);
         file4.close();
+
+        //read information from files
+
         launch(args);
+
+
     }
 
 
@@ -29,7 +34,7 @@ public class Main extends Application {
             loader.load();
             stage.setScene(new Scene(loader.getRoot()));
             stage.setTitle("Snapp Food");
-            Image icon = new Image("resources//images/Food.png");
+            Image icon = new Image("resources/images/Food.png");
             stage.getIcons().add(icon);
             FirstPageController firstPageController=loader.getController();
             firstPageController.setStage(stage);
