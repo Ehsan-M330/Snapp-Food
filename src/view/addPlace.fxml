@@ -6,20 +6,42 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 
 <AnchorPane prefHeight="622.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPlaceController">
    <children>
       <Label fx:id="titleLabel" alignment="CENTER" layoutX="315.0" layoutY="24.0" prefHeight="36.0" prefWidth="150.0" />
       <VBox alignment="TOP_CENTER" layoutX="56.0" layoutY="439.0" prefHeight="150.0" prefWidth="242.0">
          <children>
-            <TextField fx:id="placeName" prefHeight="30.0" prefWidth="230.0" promptText="Name" />
+            <TextField fx:id="placeName" prefHeight="30.0" prefWidth="230.0" promptText="Name">
+               <effect>
+                  <DropShadow height="45.0" radius="22.0" width="45.0">
+                     <color>
+                        <Color red="0.07450980693101883" green="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect></TextField>
             <TextField fx:id="placeLocation" prefHeight="30.0" prefWidth="230.0" promptText="Location">
                <VBox.margin>
                   <Insets top="10.0" />
-               </VBox.margin></TextField>
+               </VBox.margin>
+               <effect>
+                  <DropShadow height="45.0" radius="22.0" width="45.0">
+                     <color>
+                        <Color red="0.07450980693101883" green="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect></TextField>
             <Label fx:id="placeLabel" alignment="CENTER" prefHeight="30.0" prefWidth="230.0">
                <VBox.margin>
                   <Insets top="10.0" />
@@ -28,6 +50,20 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant>
+                           <color>
+                              <Color green="1.0" blue="0.11666666716337204" />
+                           </color>
+                        </Light.Distant>
+                     </light>
+                  </Lighting>
+               </effect>
             </Button>
          </children>
       </VBox>
@@ -59,14 +95,28 @@
             </ScrollPane>
          </children>
       </VBox>
-      <Button layoutX="43.0" layoutY="30.0" mnemonicParsing="false" onAction="#back" text="back" />
+      <Button layoutX="24.0" layoutY="23.0" mnemonicParsing="false" onAction="#back" prefHeight="43.0" prefWidth="51.0" text="back" />
       <Label fx:id="type1Label" alignment="CENTER" layoutX="356.0" layoutY="115.0" prefHeight="25.0" prefWidth="70.0" />
       <Label fx:id="type2Label" alignment="CENTER" layoutX="356.0" layoutY="282.0" prefHeight="25.0" prefWidth="70.0" />
       <Label fx:id="type3Label" alignment="CENTER" layoutX="355.0" layoutY="455.0" prefHeight="25.0" prefWidth="70.0" />
       <VBox alignment="CENTER" layoutX="56.0" layoutY="159.0" prefHeight="200.0" prefWidth="242.0">
          <children>
-            <ChoiceBox fx:id="choiceBox" prefHeight="30.0" prefWidth="150.0" />
-            <HBox prefHeight="36.0" prefWidth="243.0">
+            <ChoiceBox fx:id="choiceBox" prefHeight="27.0" prefWidth="150.0">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant>
+                           <color>
+                              <Color green="0.9142976999282837" blue="1.0" />
+                           </color>
+                        </Light.Distant>
+                     </light>
+                  </Lighting>
+               </effect></ChoiceBox>
+            <HBox prefHeight="29.0" prefWidth="242.0">
                <children>
                   <TextField fx:id="itemName" prefHeight="30.0" prefWidth="150.0" promptText="name" />
                   <TextField fx:id="itemPrice" prefHeight="30.0" prefWidth="100.0" promptText="price ($)" />
@@ -74,6 +124,13 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <effect>
+                  <DropShadow height="45.0" radius="22.0" width="45.0">
+                     <color>
+                        <Color red="1.0" green="0.6861250996589661" />
+                     </color>
+                  </DropShadow>
+               </effect>
             </HBox>
             <Label fx:id="itemLabel" alignment="CENTER" prefHeight="30.0" prefWidth="230.0">
                <VBox.margin>
@@ -84,8 +141,34 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant>
+                           <color>
+                              <Color green="1.0" blue="0.9962775707244873" />
+                           </color>
+                        </Light.Distant>
+                     </light>
+                  </Lighting>
+               </effect>
             </Button>
          </children>
       </VBox>
+      <ImageView disable="true" fitHeight="56.0" fitWidth="62.0" layoutX="19.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/images/images.jpg" />
+         </image>
+      </ImageView>
    </children>
+   <effect>
+      <InnerShadow choke="0.52" height="45.0" radius="22.0" width="45.0">
+         <color>
+            <Color red="0.9666666388511658" green="1.0" />
+         </color>
+      </InnerShadow>
+   </effect>
 </AnchorPane>
