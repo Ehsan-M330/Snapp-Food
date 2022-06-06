@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import model.Customer;
 import model.Delivery;
 import model.Information;
-
 import java.io.IOException;
 import java.util.ArrayList;
 

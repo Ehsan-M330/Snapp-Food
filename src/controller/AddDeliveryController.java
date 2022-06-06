@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import model.Customer;
 import model.Delivery;
 import model.Information;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -58,10 +57,6 @@ public class AddDeliveryController extends Helper {
             delivery.setEmail(email.getText());
             delivery.setPassword(password.getText());
             Information.setDeliveryInformation(delivery);
-//            write in file
-//            String temp = name.getText() + " " + lastName.getText() + " "
-//                    + phoneNumber.getText() + " " + email.getText() + " " + password.getText();
-//            Files.writeDeliveryInFile(temp);
         }
     }
 

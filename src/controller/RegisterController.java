@@ -60,10 +60,7 @@ public class RegisterController extends Helper {
             customer.setPassword(password.getText());
             customer.setMoney(0);
             Information.setCustomerInformation(customer);
-//            String temp = name.getText() + " " + lastName.getText() + " "
-//                    + phoneNumber.getText() + " " + email.getText() + " " + password.getText() + " " +"0";
 
-//            Files.writeCustomerInFile(temp);
         }
     }
 

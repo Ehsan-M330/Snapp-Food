@@ -117,22 +117,6 @@ public class AddPlaceController extends Helper {
                 cafe.setItems(items);
                 Information.setCafeInformation(cafe);
             }
-//            //write place information into file
-//            //first write place's name,location and items number
-//            String temp= placeName.getText()+" "+ placeLocation.getText()+" "+items.size()+"\n";
-//            //then write items information
-//            for(int i=0;i<items.size();i++){
-//                if(i==items.size()-1){
-//                    temp+=items.get(i);
-//                }else{
-//                    temp+=items.get(i)+"\n";
-//                }
-//            }
-//            if(typeOfPlace.equals(TypeOfPlace.RESTAURANT)){
-//                Files.writeRestaurantInFile(temp);
-//            }else{
-//                Files.writeCafeInFile(temp);
-//            }
         }
     }
 

@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import model.Files;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -20,7 +21,10 @@ public class Main extends Application {
         file4.close();
 
         //read information from files
-
+        Files.readCustomersFile();
+        Files.readDeliveriesFile();
+        Files.readRestaurantsFile();
+        Files.readCafesFile();
         launch(args);
 
 

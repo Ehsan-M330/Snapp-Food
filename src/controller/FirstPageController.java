@@ -35,11 +35,18 @@ public class FirstPageController {
     public void exit(ActionEvent event) throws IOException {
         //write information in file
 
-        //write customer information
+        //write customers information
         Files.writeCustomersInFile(Information.getCustomersInformation());
 
-        //write delivery information
+        //write deliveries information
         Files.writeDeliveriesInFile(Information.getDeliveriesInformation());
+
+        //write restaurants information
+        Files.writeRestaurantInFile(Information.getRestaurantsInformation());
+
+        //write cafes information
+        Files.writeCafeInFile(Information.getCafesInformation());
+
         //exit
         System.exit(0);
     }
