@@ -1,12 +1,19 @@
 package controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.effect.Effect;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.Files;
 import model.Information;
 
+import java.awt.Color;
 import java.io.IOException;
 
 public class FirstPageController {
@@ -15,9 +22,38 @@ public class FirstPageController {
     public Stage getStage() {
         return stage;
     }
-
+    
     public void setStage(Stage stage) {
         this.stage = stage;
+    }
+
+    @FXML
+    private Button exitbutton;
+
+    @FXML
+    private Button loginbutton;
+
+    @FXML
+    private Button registerbutton;
+
+    //Effect effect = loginbutton.getEffect();
+
+    @FXML
+    void Style1(MouseEvent event) {
+        loginbutton.setCursor(Cursor.HAND);
+        //loginbutton.setEffect(null);
+        //loginbutton.setStyle("-fx-background-color: #ffffff; ");
+
+    }
+
+    @FXML
+    void Style2(MouseEvent event) {
+        registerbutton.setCursor(Cursor.HAND);
+    }
+
+    @FXML
+    void Style3(MouseEvent event) {
+        exitbutton.setCursor(Cursor.HAND);
     }
 
     public void login(ActionEvent event){
