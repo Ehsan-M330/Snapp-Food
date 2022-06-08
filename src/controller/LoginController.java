@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import model.Customer;
 import model.Delivery;
 import model.Information;
@@ -58,7 +59,7 @@ public class LoginController extends Helper {
                 }
             }
             label.setText("Wrong information");
-
+            label.setTextFill(Color.RED);
         }
     }
 
