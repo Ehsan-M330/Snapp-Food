@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class Customer extends Person{
-    double money;
+    private double money;
 
     public double getMoney() {
         return money;

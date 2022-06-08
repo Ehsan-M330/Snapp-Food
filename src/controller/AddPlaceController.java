@@ -143,6 +143,16 @@ public class AddPlaceController extends Helper {
                 placeLabel.setText("Cafe added");
                 placeLabel.setTextFill(Color.GREEN);
             }
+            //clear page
+            type1.getChildren().removeAll(type1.getChildren());
+            type2.getChildren().removeAll(type2.getChildren());
+            type3.getChildren().removeAll(type3.getChildren());
+            items.clear();
+            itemLabel.setText("");
+            itemPrice.setText("");
+            itemName.setText("");
+            placeName.setText("");
+            placeLocation.setText("");
         }
     }
 

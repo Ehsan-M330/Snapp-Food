@@ -4,8 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import model.TypeOfPlace;
-
-
 import java.io.IOException;
 
 public class AdminPageController extends Helper{

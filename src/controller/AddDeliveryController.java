@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import model.Customer;
 import model.Delivery;
 import model.Information;
@@ -22,14 +23,19 @@ public class AddDeliveryController extends Helper {
     public void add(ActionEvent event) throws IOException {
         if (!isUserUseCorrectForm(name.getText())) {
             label.setText("incorrect Name...");
+            label.setTextFill(Color.RED);
         } else if (!isUserUseCorrectForm(lastName.getText())) {
             label.setText("incorrect Last Name...");
+            label.setTextFill(Color.RED);
         } else if (!isPhoneNumberCorrect(phoneNumber.getText())) {
             label.setText("incorrect Phone Number...");
+            label.setTextFill(Color.RED);
         } else if (!isEmailCorrect(email.getText())) {
             label.setText("invalid Email...");
+            label.setTextFill(Color.RED);
         } else if (!isUserUseCorrectForm(password.getText())) {
             label.setText("incorrect Password...");
+            label.setTextFill(Color.RED);
         } else {
             //check for unrepeated email
             ArrayList<Customer> customers=Information.getCustomersInformation();
@@ -38,6 +44,7 @@ public class AddDeliveryController extends Helper {
             for(int i=0;i<customers.size();i++){
                 if(customers.get(i).getEmail().equals(email.getText())){
                     label.setText("This Email not available");
+                    label.setTextFill(Color.RED);
                     return;
                 }
             }
@@ -45,10 +52,12 @@ public class AddDeliveryController extends Helper {
             for(int i=0;i<deliveries.size();i++){
                 if(deliveries.get(i).getEmail().equals(email.getText())){
                     label.setText("This Email not available");
+                    label.setTextFill(Color.RED);
                     return;
                 }
             }
-
+            label.setText("Delivery aded");
+            label.setTextFill(Color.GREEN);
             //add new delivery
             Delivery delivery=new Delivery();
             delivery.setName(name.getText());

@@ -14,15 +14,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class CustomerPageController extends Helper {
-    Customer customer;
+    private Customer customer;
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
     //get restaurants and cafes information
-    ArrayList<Restaurant>restaurants=Information.getRestaurantsInformation();
-    ArrayList<Cafe>cafes=Information.getCafesInformation();
+    private ArrayList<Restaurant>restaurants=Information.getRestaurantsInformation();
+    private ArrayList<Cafe>cafes=Information.getCafesInformation();
     public void start() throws IOException {
         setMoneyLabel();
     }
@@ -40,10 +40,22 @@ public class CustomerPageController extends Helper {
                 Button button=new Button(restaurants.get(i).getName());
                 restaurantVbox.getChildren().add(button);
                 restaurantVbox.setSpacing(10);
+                Restaurant restaurant=restaurants.get(i);
                 button.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
-                        // TODO: 6/5/2022
+                         FXMLLoader loader=new FXMLLoader(getClass().getResource("..\\view\\chooseItems.fxml"));
+                         try{
+                             loader.load();
+                             getStage().setScene(new Scene(loader.getRoot()));
+                             ChooseItemsController chooseItemsController=loader.getController();
+                             chooseItemsController.setStage(getStage());
+                             chooseItemsController.start(customer,restaurant);
+                         }catch (IOException e){
+                             e.printStackTrace();
+                         }
+
+
                     }
                 });
             }
@@ -53,10 +65,20 @@ public class CustomerPageController extends Helper {
                 Button button=new Button(cafes.get(i).getName());
                 cafeVbox.getChildren().add(button);
                 cafeVbox.setSpacing(10);
+                Cafe cafe=cafes.get(i);
                 button.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
-                        // TODO: 6/5/2022
+                        FXMLLoader loader=new FXMLLoader(getClass().getResource("..\\view\\chooseItems.fxml"));
+                        try{
+                            loader.load();
+                            getStage().setScene(new Scene(loader.getRoot()));
+                            ChooseItemsController chooseItemsController=loader.getController();
+                            chooseItemsController.setStage(getStage());
+                            chooseItemsController.start(customer,cafe);
+                        }catch (IOException e){
+                            e.printStackTrace();
+                        }
                     }
                 });
             }
