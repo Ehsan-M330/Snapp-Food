@@ -16,7 +16,7 @@
 
 <AnchorPane prefHeight="411.0" prefWidth="299.0" style="-fx-background-color: #03353e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FirstPageController">
    <children>
-      <VBox layoutX="71.0" layoutY="186.0" prefHeight="102.0" prefWidth="150.0" AnchorPane.bottomAnchor="122.60000000000002" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="70.6">
+      <VBox layoutX="78.0" layoutY="186.0" prefHeight="102.0" prefWidth="150.0" AnchorPane.bottomAnchor="122.60000000000002" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="63.599999999999994">
          <children>
             <Button mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="150.0" text="Login">
                <VBox.margin>
@@ -71,16 +71,35 @@
             </DropShadow>
          </effect>
       </VBox>
-      <ImageView fitHeight="128.0" fitWidth="110.0">
+      <ImageView fitHeight="132.0" fitWidth="138.0">
          <image>
             <Image url="@/resources/images/Snap-Food-1.png" />
          </image>
       </ImageView>
-      <Button layoutX="74.0" layoutY="304.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="150.0" text="Exit">
+      <Button layoutX="239.0" layoutY="14.0" mnemonicParsing="false" onAction="#exit" prefHeight="40.0" prefWidth="50.0" text="Exit">
          <font>
             <Font size="18.0" />
          </font>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.10760233551263809" green="0.2268615961074829" blue="0.4842105209827423" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
       </Button>
+      <ImageView disable="true" fitHeight="60.0" fitWidth="75.0" layoutX="228.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/resources/images/Exit.png" />
+         </image>
+      </ImageView>
    </children>
    <effect>
       <InnerShadow choke="0.65" height="49.0" radius="24.0175" width="49.07" />
