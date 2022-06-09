@@ -3,9 +3,11 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import model.Customer;
 import model.Delivery;
@@ -18,8 +20,28 @@ public class LoginController extends Helper {
 
     @FXML
     TextField userName, password;
+
     @FXML
     Label label;
+
+    @FXML
+    private ImageView ErrorIcon;
+
+    @FXML
+    private Button backButton;
+
+    @FXML
+    private Button loginbutton;
+
+    @FXML
+    void style1(MouseEvent event) {
+        loginbutton.setCursor(Cursor.HAND);
+    }
+
+    @FXML
+    void style2(MouseEvent event) {
+        backButton.setCursor(Cursor.HAND);
+    }
 
     public void login(ActionEvent event) throws IOException {
         //check for admin entry
@@ -60,6 +82,7 @@ public class LoginController extends Helper {
             }
             label.setText("Wrong information");
             label.setTextFill(Color.RED);
+            ErrorIcon.setVisible(true);
         }
     }
 
