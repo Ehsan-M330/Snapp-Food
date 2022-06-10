@@ -7,57 +7,109 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="593.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChooseItemsController">
+<AnchorPane prefHeight="645.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChooseItemsController">
    <children>
       <Button layoutX="27.0" layoutY="27.0" mnemonicParsing="false" onAction="#back" text="back" />
-      <Button layoutX="611.0" layoutY="488.0" mnemonicParsing="false" onAction="#order" text="Order" />
-      <VBox alignment="TOP_CENTER" layoutX="510.0" layoutY="53.0" prefHeight="300.0" prefWidth="250.0">
+      <VBox alignment="TOP_CENTER" layoutX="566.0" layoutY="152.0" prefHeight="376.0" prefWidth="250.0">
          <children>
-            <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="My list" />
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="My list">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
             <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="250.0">
                <content>
-                  <VBox fx:id="list" alignment="TOP_CENTER" prefHeight="197.0" prefWidth="250.0" />
+                  <VBox fx:id="list" alignment="TOP_CENTER" prefHeight="197.0" prefWidth="250.0" spacing="20.0" />
                </content>
             </ScrollPane>
+            <HBox prefHeight="30.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="100.0" text="Total Price :">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="priceLabel" alignment="CENTER" prefHeight="30.0" prefWidth="100.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#order" prefHeight="30.0" prefWidth="100.0" text="Order">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="150.0">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" layoutX="107.0" layoutY="53.0" prefHeight="538.0" prefWidth="295.0">
+      <VBox alignment="TOP_CENTER" layoutX="27.0" layoutY="68.0" prefHeight="543.0" prefWidth="440.0">
          <children>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="150.0" prefWidth="300.0">
-               <content>
-                  <VBox fx:id="type1" alignment="TOP_CENTER" prefHeight="148.0" prefWidth="300.0" />
-               </content>
+            <Label alignment="CENTER" prefWidth="150.0" text="List">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="150.0" prefWidth="385.0" spacing="10.0">
+               <children>
+                  <Label fx:id="type1Label" alignment="CENTER" prefHeight="30.0" prefWidth="100.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="150.0" prefWidth="300.0">
+                     <content>
+                        <VBox fx:id="type1" alignment="TOP_CENTER" prefHeight="148.0" prefWidth="300.0" spacing="20.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
-            </ScrollPane>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="150.0" prefWidth="300.0">
-               <content>
-                  <VBox fx:id="type2" alignment="TOP_CENTER" prefHeight="148.0" prefWidth="300.0" />
-               </content>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="150.0" prefWidth="385.0" spacing="10.0">
+               <children>
+                  <Label fx:id="type2Label" alignment="CENTER" prefHeight="30.0" prefWidth="100.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="150.0" prefWidth="300.0">
+                     <content>
+                        <VBox fx:id="type2" alignment="TOP_CENTER" prefHeight="148.0" prefWidth="300.0" spacing="20.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
-            </ScrollPane>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="150.0" prefWidth="300.0">
-               <content>
-                  <VBox fx:id="type3" alignment="TOP_CENTER" prefHeight="148.0" prefWidth="300.0" />
-               </content>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="150.0" prefWidth="440.0" spacing="10.0">
+               <children>
+                  <Label fx:id="type3Label" alignment="CENTER" prefHeight="30.0" prefWidth="100.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="150.0" prefWidth="300.0">
+                     <content>
+                        <VBox fx:id="type3" alignment="TOP_CENTER" prefHeight="148.0" prefWidth="300.0" spacing="20.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
-            </ScrollPane>
+            </HBox>
          </children>
       </VBox>
-      <HBox layoutX="535.0" layoutY="421.0" prefHeight="30.0" prefWidth="200.0">
-         <children>
-            <Label alignment="CENTER" prefHeight="30.0" prefWidth="100.0" text="Price :" />
-            <Label fx:id="priceLabel" alignment="CENTER" prefHeight="30.0" prefWidth="100.0" />
-         </children>
-      </HBox>
-      <Label fx:id="type1Label" alignment="CENTER" layoutX="33.0" layoutY="139.0" prefHeight="25.0" prefWidth="70.0" />
-      <Label fx:id="type2Label" alignment="CENTER" layoutX="33.0" layoutY="306.0" prefHeight="25.0" prefWidth="70.0" />
-      <Label fx:id="type3Label" alignment="CENTER" layoutX="32.0" layoutY="479.0" prefHeight="25.0" prefWidth="70.0" />
    </children>
 </AnchorPane>

@@ -3,9 +3,12 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import model.*;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,20 +22,19 @@ public class ChooseItemsController extends Helper {
 
     ArrayList<String>orderList=new ArrayList<>();
     double price;
+    Customer customer;
     public void start(Customer customer, Restaurant restaurant) throws NullPointerException{
+        this.customer=customer;
         price=customer.getMoney();
         type1Label.setText("Fast Foods");
         type2Label.setText("Iranian Food");
         type3Label.setText("Drinks");
-        type1.setSpacing(20);
-        type2.setSpacing(20);
-        type3.setSpacing(20);
-        list.setSpacing(20);
         //show items
         for (int i = 0; i <restaurant.getItemsNumber();i++){
             String[] itemInformation=restaurant.getItems().get(i).split(" ");
-            String item = itemInformation[1] +itemInformation[2]+" $";
+            String item = itemInformation[1] +"  "+itemInformation[2]+" $";
             Button button=new Button(item);
+            button.setFont(Font.font(15));
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
@@ -114,6 +116,11 @@ public class ChooseItemsController extends Helper {
     }
     @Override
     public void back(ActionEvent event) throws IOException {
-
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("..\\view\\customerPage.fxml"));
+        loader.load();
+        getStage().setScene(new Scene(loader.getRoot()));
+        CustomerPageController customerPageController=loader.getController();
+        customerPageController.setStage(getStage());
+        customerPageController.setCustomer(customer);
     }
 }

@@ -45,7 +45,6 @@ public class CustomerPageController extends Helper {
             if(locationTextField.getText().equals(restaurants.get(i).getLocation())){
                 Button button=new Button(restaurants.get(i).getName());
                 restaurantVbox.getChildren().add(button);
-                restaurantVbox.setSpacing(10);
                 Restaurant restaurant=restaurants.get(i);
                 button.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
@@ -70,7 +69,6 @@ public class CustomerPageController extends Helper {
             if(locationTextField.getText().equals(cafes.get(i).getLocation())){
                 Button button=new Button(cafes.get(i).getName());
                 cafeVbox.getChildren().add(button);
-                cafeVbox.setSpacing(10);
                 Cafe cafe=cafes.get(i);
                 button.setOnAction(new EventHandler<ActionEvent>() {
                     @Override

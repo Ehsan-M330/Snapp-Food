@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="581.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerPageController">
+<AnchorPane prefHeight="495.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerPageController">
    <children>
       <Button layoutX="46.0" layoutY="35.0" mnemonicParsing="false" onAction="#back" text="back" />
       <HBox alignment="TOP_CENTER" layoutX="9.0" layoutY="94.0" prefHeight="413.0" prefWidth="718.0" spacing="20.0">
@@ -39,7 +39,7 @@
                   </HBox>
                   <HBox prefHeight="37.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="moneyTextField" prefHeight="20.0" prefWidth="150.0" />
+                        <TextField fx:id="moneyTextField" prefHeight="20.0" prefWidth="150.0" promptText="\$" />
                         <Button mnemonicParsing="false" onAction="#charge" prefHeight="20.0" prefWidth="60.0" text="charge" />
                      </children>
                      <VBox.margin>
@@ -57,10 +57,10 @@
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="110.0" prefWidth="210.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="location" />
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="Cafes &amp; Restaurants" />
                         <HBox prefHeight="37.0" prefWidth="200.0">
                            <children>
-                              <TextField fx:id="locationTextField" prefHeight="20.0" prefWidth="150.0" />
+                              <TextField fx:id="locationTextField" prefHeight="20.0" prefWidth="150.0" promptText="Location" />
                               <Button mnemonicParsing="false" onAction="#search" prefHeight="20.0" prefWidth="60.0" text="search" />
                            </children>
                            <VBox.margin>

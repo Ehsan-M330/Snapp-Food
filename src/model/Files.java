@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Files {
 
-    public static void readRestaurantsFile() throws IOException,NullPointerException {
+    public static void readRestaurantsFile() throws IOException {
         Scanner reader = new Scanner(new File("restaurants.txt"));
         while (reader.hasNextLine()) {
             String[] temp=reader.nextLine().split(" ");
@@ -59,7 +59,7 @@ public class Files {
 
     }
 
-    public static void writeCafeInFile(ArrayList<Cafe> information) throws IOException,NullPointerException {
+    public static void writeCafeInFile(ArrayList<Cafe> information) throws IOException {
         FileWriter writer = new FileWriter("cafes.txt");
         for (int i = 0; i < information.size(); i++) {
             writer.write(information.get(i).getName() + " " +
@@ -73,7 +73,7 @@ public class Files {
         writer.close();
     }
 
-    public static void readCustomersFile() throws IOException, NullPointerException {
+    public static void readCustomersFile() throws IOException {
         Scanner reader = new Scanner(new File("customers.txt"));
         while (reader.hasNextLine()) {
             String[] temp = reader.nextLine().split(" ");
@@ -98,7 +98,7 @@ public class Files {
         writer.close();
     }
 
-    public static void readDeliveriesFile() throws IOException, NullPointerException {
+    public static void readDeliveriesFile() throws IOException {
         Scanner reader = new Scanner(new File("deliveries.txt"));
         while (reader.hasNextLine()) {
             String[] temp = reader.nextLine().split(" ");

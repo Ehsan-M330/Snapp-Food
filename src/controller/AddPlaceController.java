@@ -3,6 +3,7 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -10,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 import model.*;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -54,11 +57,15 @@ public class AddPlaceController extends Helper {
         if (!isUserUseCorrectForm(itemName.getText())) {
             itemLabel.setText("Use correct format for Name");
             itemLabel.setTextFill(Color.RED);
-        } else if (!isPriceFormatCorrect(itemPrice.getText())) {
+        } else if (!moneyRegex(itemPrice.getText())) {
             itemLabel.setText("Use correct format for Price");
             itemLabel.setTextFill(Color.RED);
         } else {
-            HBox hBox = new HBox(new Label(" " + itemName.getText() + "  " + itemPrice.getText()));
+            Label label=new Label( itemName.getText() + "   " + itemPrice.getText()+" $");
+            label.setTextAlignment(TextAlignment.CENTER);
+            label.setFont(Font.font(15));
+            HBox hBox = new HBox(label);
+            hBox.setAlignment(Pos.CENTER);
             if (typeOfPlace.equals(TypeOfPlace.RESTAURANT)) {
                 switch (choiceBox.getValue()) {
                     case "Fast Foods":
@@ -147,7 +154,7 @@ public class AddPlaceController extends Helper {
             type1.getChildren().removeAll(type1.getChildren());
             type2.getChildren().removeAll(type2.getChildren());
             type3.getChildren().removeAll(type3.getChildren());
-            items.clear();
+            ArrayList<String> items=new ArrayList<>();
             itemLabel.setText("");
             itemPrice.setText("");
             itemName.setText("");
@@ -156,6 +163,9 @@ public class AddPlaceController extends Helper {
         }
     }
 
+    public boolean moneyRegex(String str){
+        return Pattern.matches("[0-9]{1,3}(\\.[0-9]{1,2})?",str);
+    }
     public boolean isUserUseCorrectForm(String str) {
         return Pattern.matches("[0-9-a-z-A-Z]{4,}", str);
     }
