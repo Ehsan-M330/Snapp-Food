@@ -13,8 +13,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#showRestaurants" prefHeight="30.0" prefWidth="70.0" text="restraunts" />
-                  <Button mnemonicParsing="false" onAction="#addRestaurant" prefHeight="30.0" prefWidth="70.0" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#addRestaurant" prefHeight="30.0" prefWidth="150.0" text="Add Restaurant" />
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
@@ -22,8 +21,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#showCafes" prefHeight="30.0" prefWidth="70.0" text="cafes" />
-                  <Button mnemonicParsing="false" onAction="#addCafe" prefHeight="30.0" prefWidth="70.0" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#addCafe" prefHeight="30.0" prefWidth="150.0" text="Add Cafe" />
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
@@ -31,8 +29,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#showDeliveries" prefHeight="30.0" prefWidth="70.0" text="deliveries" />
-                  <Button mnemonicParsing="false" onAction="#addDelivery" prefHeight="30.0" prefWidth="70.0" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#addDelivery" prefHeight="30.0" prefWidth="150.0" text="Add Delivery" />
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
