@@ -17,6 +17,17 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class CustomerPageController extends Helper {
+    @FXML
+    TextField locationTextField;
+    @FXML
+    Label locationLabel;
+    @FXML
+    VBox restaurantVBox, cafeVBox, orderVBox;
+    @FXML
+    Label moneyLabel, moneyMessageLabel;
+    @FXML
+    TextField moneyTextField;
+
     private Customer customer;
 
     public void setCustomer(Customer customer) {
@@ -26,29 +37,32 @@ public class CustomerPageController extends Helper {
     //get restaurants and cafes information
     private ArrayList<Restaurant> restaurants = Information.getRestaurantsInformation();
     private ArrayList<Cafe> cafes = Information.getCafesInformation();
+    private ArrayList<Order> orders = Information.getOrdersInformation();
 
     public void start() throws IOException {
         setMoneyLabel();
+
+        //show orders
+        for (int i = 0; i < orders.size(); i++) {
+            if (orders.get(i).getUserEmail().equals(customer.getEmail())) {
+                Label label = new Label("Place : " + orders.get(i).getPlaceName() + " | Items Number : " + orders.get(i).getItemsNumber() + " | Status : " + orders.get(i).getOrderStatus());
+                orderVBox.getChildren().add(label);
+                for (int t = 0; t < orders.get(i).getItemsNumber(); t++) {
+                    orderVBox.getChildren().add(new Label(orders.get(i).getItems().get(t)));
+                }
+                orderVBox.getChildren().add(new Label("-------------------------------------"));
+            }
+        }
     }
 
-    @FXML
-    TextField locationTextField;
-    @FXML
-    Label locationLabel;
-    @FXML
-    VBox restaurantVbox, cafeVbox;
-    @FXML
-    Label moneyLabel, moneyMessageLabel;
-    @FXML
-    TextField moneyTextField;
 
     public void search(ActionEvent event) {
-        restaurantVbox.getChildren().removeAll(restaurantVbox.getChildren());
-        cafeVbox.getChildren().removeAll(cafeVbox.getChildren());
+        restaurantVBox.getChildren().removeAll(restaurantVBox.getChildren());
+        cafeVBox.getChildren().removeAll(cafeVBox.getChildren());
         for (int i = 0; i < restaurants.size(); i++) {
             if (locationTextField.getText().equals(restaurants.get(i).getLocation())) {
                 Button button = new Button(restaurants.get(i).getName());
-                restaurantVbox.getChildren().add(button);
+                restaurantVBox.getChildren().add(button);
                 Restaurant restaurant = restaurants.get(i);
                 button.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
@@ -72,7 +86,7 @@ public class CustomerPageController extends Helper {
         for (int i = 0; i < cafes.size(); i++) {
             if (locationTextField.getText().equals(cafes.get(i).getLocation())) {
                 Button button = new Button(cafes.get(i).getName());
-                cafeVbox.getChildren().add(button);
+                cafeVBox.getChildren().add(button);
                 Cafe cafe = cafes.get(i);
                 button.setOnAction(new EventHandler<ActionEvent>() {
                     @Override

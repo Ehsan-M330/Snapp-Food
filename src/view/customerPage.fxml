@@ -9,48 +9,73 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="495.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerPageController">
+<AnchorPane prefHeight="523.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerPageController">
    <children>
       <Button layoutX="46.0" layoutY="35.0" mnemonicParsing="false" onAction="#back" text="back" />
-      <HBox alignment="TOP_CENTER" layoutX="9.0" layoutY="94.0" prefHeight="413.0" prefWidth="718.0" spacing="20.0">
+      <HBox alignment="TOP_CENTER" layoutX="9.0" layoutY="94.0" prefHeight="413.0" prefWidth="718.0" spacing="10.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="110.0" prefWidth="210.0">
+            <VBox alignment="TOP_CENTER" prefHeight="414.0" prefWidth="430.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="Invite Friend" />
-                  <HBox prefHeight="33.0" prefWidth="228.0">
+                  <HBox prefHeight="100.0" prefWidth="430.0" spacing="10.0">
                      <children>
-                        <TextField fx:id="frinedTextField" prefHeight="20.0" prefWidth="150.0" promptText="Friends User Name" />
-                        <Button mnemonicParsing="false" onAction="#sendInvite" prefHeight="20.0" prefWidth="60.0" text="send" />
+                        <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="210.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="Invite Friend" />
+                              <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="frinedTextField" prefHeight="20.0" prefWidth="150.0" promptText="Friends User Name" />
+                                    <Button mnemonicParsing="false" onAction="#sendInvite" prefHeight="20.0" prefWidth="60.0" text="send" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <Label fx:id="inviteFriendLabel" alignment="CENTER" prefHeight="20.0" prefWidth="150.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="210.0">
+                           <children>
+                              <HBox prefHeight="30.0" prefWidth="210.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="my money :" />
+                                    <Label fx:id="moneyLabel" alignment="CENTER" prefHeight="30.0" prefWidth="90.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="moneyTextField" prefHeight="20.0" prefWidth="150.0" promptText="\$" />
+                                    <Button mnemonicParsing="false" onAction="#charge" prefHeight="20.0" prefWidth="60.0" text="charge" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <Label fx:id="moneyMessageLabel" alignment="CENTER" prefHeight="20.0" prefWidth="150.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
                      </children>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
                   </HBox>
-                  <Label fx:id="inviteFriendLabel" alignment="CENTER" prefHeight="20.0" prefWidth="150.0" />
-               </children>
-            </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="322.0" prefWidth="210.0">
-               <children>
-                  <HBox prefHeight="30.0" prefWidth="210.0">
-                     <children>
-                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="my money :" />
-                        <Label fx:id="moneyLabel" alignment="CENTER" prefHeight="30.0" prefWidth="90.0" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="37.0" prefWidth="200.0">
-                     <children>
-                        <TextField fx:id="moneyTextField" prefHeight="20.0" prefWidth="150.0" promptText="\$" />
-                        <Button mnemonicParsing="false" onAction="#charge" prefHeight="20.0" prefWidth="60.0" text="charge" />
-                     </children>
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="My Orders">
                      <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <Label fx:id="moneyMessageLabel" alignment="CENTER" prefHeight="20.0" prefWidth="150.0">
-                     <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets top="20.0" />
                      </VBox.margin>
                   </Label>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <content>
+                        <VBox fx:id="orderVBox" alignment="TOP_CENTER" prefHeight="197.0" prefWidth="428.0" spacing="10.0" />
+                     </content>
+                  </ScrollPane>
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="414.0" prefWidth="210.0">
@@ -84,7 +109,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                      <content>
-                        <VBox fx:id="restaurantVbox" alignment="TOP_CENTER" prefHeight="98.0" prefWidth="210.0" spacing="10.0" />
+                        <VBox fx:id="restaurantVBox" alignment="TOP_CENTER" prefHeight="98.0" prefWidth="210.0" spacing="10.0" />
                      </content>
                   </ScrollPane>
                   <Label alignment="CENTER" prefHeight="20.0" prefWidth="150.0" text="Cafes">
@@ -97,7 +122,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                      <content>
-                        <VBox fx:id="cafeVbox" alignment="TOP_CENTER" prefHeight="98.0" prefWidth="210.0" spacing="10.0" />
+                        <VBox fx:id="cafeVBox" alignment="TOP_CENTER" prefHeight="98.0" prefWidth="210.0" spacing="10.0" />
                      </content>
                   </ScrollPane>
                </children>
