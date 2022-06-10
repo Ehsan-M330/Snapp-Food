@@ -9,9 +9,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import model.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class CustomerPageController extends Helper {
     private Customer customer;
@@ -32,6 +34,10 @@ public class CustomerPageController extends Helper {
     Label locationLabel;
     @FXML
     VBox restaurantVbox,cafeVbox;
+    @FXML
+    Label moneyLabel,moneyMessageLabel;
+    @FXML
+    TextField moneyTextField;
     public void search(ActionEvent event){
         restaurantVbox.getChildren().removeAll(restaurantVbox.getChildren());
         cafeVbox.getChildren().removeAll(cafeVbox.getChildren());
@@ -85,9 +91,23 @@ public class CustomerPageController extends Helper {
         }
     }
 
-    @FXML
-    Label moneyLabel;
 
+    public void charge(ActionEvent event){
+        if(chargeRegex(moneyTextField.getText())){
+            customer.setMoney(customer.getMoney()+Double.parseDouble(moneyTextField.getText()));
+            setMoneyLabel();
+            moneyTextField.setText("");
+            moneyMessageLabel.setText("Added");
+            moneyMessageLabel.setTextFill(Color.GREEN);
+        }else{
+            moneyMessageLabel.setText("Use correct format");
+            moneyMessageLabel.setTextFill(Color.RED);
+        }
+    }
+
+    public boolean chargeRegex(String str){
+        return Pattern.matches("[0-9]{1,3}(\\.[0-9]{1,2})?",str);
+    }
     public void setMoneyLabel(){
         moneyLabel.setText(Double.toString(customer.getMoney()));
     }

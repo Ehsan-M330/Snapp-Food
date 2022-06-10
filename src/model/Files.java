@@ -94,9 +94,8 @@ public class Files {
             writer.write(information.get(i).getName() + " " + information.get(i).getLastName() + " "
                     + information.get(i).getPhoneNumber() + " " + information.get(i).getEmail()
                     + " " + information.get(i).getPassword() + " " + information.get(i).getMoney() + "\n");
-            writer.close();
         }
-
+        writer.close();
     }
 
     public static void readDeliveriesFile() throws IOException, NullPointerException {

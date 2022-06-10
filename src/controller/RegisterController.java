@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import model.Customer;
@@ -17,7 +18,9 @@ import java.util.regex.Pattern;
 
 public class RegisterController extends Helper {
     @FXML
-    TextField email, name, lastName, phoneNumber, password;
+    TextField email, name, lastName, phoneNumber;
+    @FXML
+    PasswordField password;
     @FXML
     Label label;
 

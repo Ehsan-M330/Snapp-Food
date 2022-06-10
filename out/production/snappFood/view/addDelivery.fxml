@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddDeliveryController">
    <children>
       <Button layoutX="41.0" layoutY="35.0" mnemonicParsing="false" onAction="#back" text="back" />
@@ -30,11 +31,11 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="password" promptText="Password">
+            <PasswordField fx:id="password" promptText="Password">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
-            </TextField>
+            </PasswordField>
             <Label fx:id="label" alignment="CENTER" prefHeight="23.0" prefWidth="257.0">
                <VBox.margin>
                   <Insets top="20.0" />

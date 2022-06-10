@@ -19,8 +19,9 @@ import java.util.ArrayList;
 public class LoginController extends Helper {
 
     @FXML
-    TextField userName, password;
-
+    TextField userName;
+    @FXML
+    PasswordField password;
     @FXML
     Label label;
 

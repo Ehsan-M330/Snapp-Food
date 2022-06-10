@@ -7,7 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import model.*;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -111,7 +110,7 @@ public class ChooseItemsController extends Helper {
     }
 
     public void order(ActionEvent event){
-        
+
     }
     @Override
     public void back(ActionEvent event) throws IOException {

@@ -12,6 +12,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane prefHeight="426.0" prefWidth="421.0" style="-fx-background-color: #03353e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
    <children>
       <Button layoutX="9.0" layoutY="8.0" mnemonicParsing="false" onAction="#back" opacity="0.0" prefHeight="47.0" prefWidth="59.0" text="&lt;-" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="8.0" />
@@ -49,14 +50,14 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="password" promptText="Password">
+            <PasswordField fx:id="password" promptText="Password">
                <VBox.margin>
                   <Insets top="15.0" />
                </VBox.margin>
                <font>
                   <Font size="18.0" />
                </font>
-            </TextField>
+            </PasswordField>
             <Label fx:id="label" alignment="CENTER" prefHeight="37.0" prefWidth="251.0" textAlignment="CENTER" textFill="RED">
                <VBox.margin>
                   <Insets top="20.0" />
