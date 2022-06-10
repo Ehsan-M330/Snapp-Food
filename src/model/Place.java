@@ -3,17 +3,18 @@ package model;
 import java.util.ArrayList;
 
 public class Place {
-    private String location,name;
+    private String location, name;
     private int itemsNumber;
-    private ArrayList<String> items=new ArrayList<>();
+    private ArrayList<String> items = new ArrayList<>();
 
-    public void setItems(ArrayList<String>items){
-        this.items=items;
+    public void setItems(ArrayList<String> items) {
+        this.items = items;
     }
 
-    public ArrayList<String> getItems(){
+    public ArrayList<String> getItems() {
         return items;
     }
+
     public int getItemsNumber() {
         return itemsNumber;
     }

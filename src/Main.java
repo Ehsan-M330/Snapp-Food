@@ -19,12 +19,15 @@ public class Main extends Application {
         file3.close();
         FileWriter file4 = new FileWriter("deliveries.txt", true);
         file4.close();
+        FileWriter file5=new FileWriter("orders.txt",true);
+        file5.close();
 
         //read information from files
         Files.readCustomersFile();
         Files.readDeliveriesFile();
         Files.readRestaurantsFile();
         Files.readCafesFile();
+        Files.readOrdersFile();
         launch(args);
 
 

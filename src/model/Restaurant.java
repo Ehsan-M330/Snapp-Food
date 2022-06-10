@@ -1,6 +1,6 @@
 package model;
 
 
-public class Restaurant extends Place{
+public class Restaurant extends Place {
 
 }

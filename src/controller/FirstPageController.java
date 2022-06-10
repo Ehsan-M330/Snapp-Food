@@ -22,7 +22,7 @@ public class FirstPageController {
     public Stage getStage() {
         return stage;
     }
-    
+
     public void setStage(Stage stage) {
         this.stage = stage;
     }
@@ -56,14 +56,14 @@ public class FirstPageController {
         exitbutton.setCursor(Cursor.HAND);
     }
 
-    public void login(ActionEvent event){
-        FXMLLoader loader =new FXMLLoader(getClass().getResource("..\\view\\login.fxml"));
-        try{
+    public void login(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\view\\login.fxml"));
+        try {
             loader.load();
             getStage().setScene(new Scene(loader.getRoot()));
-            LoginController loginController=loader.getController();
+            LoginController loginController = loader.getController();
             loginController.setStage(getStage());
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -83,18 +83,21 @@ public class FirstPageController {
         //write cafes information
         Files.writeCafeInFile(Information.getCafesInformation());
 
+        //write orders information
+        Files.writeOrdersInFile(Information.getOrdersInformation());
+
         //exit
         System.exit(0);
     }
 
-    public void register(ActionEvent event){
-        FXMLLoader loader =new FXMLLoader(getClass().getResource("..\\view\\register.fxml"));
-        try{
+    public void register(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\view\\register.fxml"));
+        try {
             loader.load();
             getStage().setScene(new Scene(loader.getRoot()));
-            RegisterController registerController=loader.getController();
+            RegisterController registerController = loader.getController();
             registerController.setStage(getStage());
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

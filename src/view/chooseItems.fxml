@@ -30,7 +30,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="priceLabel" alignment="CENTER" prefHeight="30.0" prefWidth="100.0" />
+                  <Label fx:id="totalPriceLabel" alignment="CENTER" prefHeight="30.0" prefWidth="142.0" />
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
@@ -44,7 +44,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Label alignment="CENTER" prefHeight="20.0" prefWidth="150.0">
+            <Label fx:id="orderLabel" alignment="CENTER" prefHeight="20.0" prefWidth="150.0">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>

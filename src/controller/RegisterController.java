@@ -72,6 +72,12 @@ public class RegisterController extends Helper {
             customer.setMoney(0);
             Information.setCustomerInformation(customer);
 
+            //clear
+            name.setText("");
+            lastName.setText("");
+            phoneNumber.setText("");
+            email.setText("");
+            password.setText("");
         }
     }
 

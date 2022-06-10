@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import model.Customer;
 import model.Delivery;
 import model.Information;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -38,34 +39,42 @@ public class AddDeliveryController extends Helper {
             label.setTextFill(Color.RED);
         } else {
             //check for unrepeated email
-            ArrayList<Customer> customers=Information.getCustomersInformation();
-            ArrayList<Delivery> deliveries=Information.getDeliveriesInformation();
+            ArrayList<Customer> customers = Information.getCustomersInformation();
+            ArrayList<Delivery> deliveries = Information.getDeliveriesInformation();
 
-            for(int i=0;i<customers.size();i++){
-                if(customers.get(i).getEmail().equals(email.getText())){
+            for (int i = 0; i < customers.size(); i++) {
+                if (customers.get(i).getEmail().equals(email.getText())) {
                     label.setText("This Email not available");
                     label.setTextFill(Color.RED);
                     return;
                 }
             }
 
-            for(int i=0;i<deliveries.size();i++){
-                if(deliveries.get(i).getEmail().equals(email.getText())){
+            for (int i = 0; i < deliveries.size(); i++) {
+                if (deliveries.get(i).getEmail().equals(email.getText())) {
                     label.setText("This Email not available");
                     label.setTextFill(Color.RED);
                     return;
                 }
             }
-            label.setText("Delivery aded");
+            label.setText("Added");
             label.setTextFill(Color.GREEN);
+
             //add new delivery
-            Delivery delivery=new Delivery();
+            Delivery delivery = new Delivery();
             delivery.setName(name.getText());
             delivery.setLastName(lastName.getText());
             delivery.setPhoneNumber(phoneNumber.getText());
             delivery.setEmail(email.getText());
             delivery.setPassword(password.getText());
             Information.setDeliveryInformation(delivery);
+
+            //clear
+            name.setText("");
+            lastName.setText("");
+            phoneNumber.setText("");
+            email.setText("");
+            password.setText("");
         }
     }
 
@@ -89,10 +98,10 @@ public class AddDeliveryController extends Helper {
 
     @Override
     public void back(ActionEvent event) throws IOException {
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("..\\view\\adminPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\view\\adminPage.fxml"));
         loader.load();
         getStage().setScene(new Scene(loader.getRoot()));
-        AdminPageController adminPageController=loader.getController();
+        AdminPageController adminPageController = loader.getController();
         adminPageController.setStage(getStage());
     }
 }

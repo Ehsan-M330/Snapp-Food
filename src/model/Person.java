@@ -1,7 +1,7 @@
 package model;
 
 public class Person {
-    private String name,lastName,email,password,phoneNumber;
+    private String name, lastName, email, password, phoneNumber;
 
     public String getName() {
         return name;

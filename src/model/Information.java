@@ -45,4 +45,15 @@ public class Information {
     public static ArrayList<Restaurant> getRestaurantsInformation() {
         return restaurantsInformation;
     }
+
+
+    private static ArrayList<Order> ordersInformation = new ArrayList<>();
+
+    public static void setOrderInformation(Order order) {
+        ordersInformation.add(order);
+    }
+
+    public static ArrayList<Order> getOrdersInformation() {
+        return ordersInformation;
+    }
 }

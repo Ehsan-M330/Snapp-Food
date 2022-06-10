@@ -11,13 +11,13 @@ public class Files {
     public static void readRestaurantsFile() throws IOException {
         Scanner reader = new Scanner(new File("restaurants.txt"));
         while (reader.hasNextLine()) {
-            String[] temp=reader.nextLine().split(" ");
-            Restaurant restaurant =new Restaurant();
+            String[] temp = reader.nextLine().split(" ");
+            Restaurant restaurant = new Restaurant();
             restaurant.setName(temp[0]);
             restaurant.setLocation(temp[1]);
             restaurant.setItemsNumber(Integer.parseInt(temp[2]));
-            ArrayList<String>items=new ArrayList<>();
-            for(int i=0;i<restaurant.getItemsNumber();i++){
+            ArrayList<String> items = new ArrayList<>();
+            for (int i = 0; i < restaurant.getItemsNumber(); i++) {
                 items.add(reader.nextLine());
             }
             restaurant.setItems(items);
@@ -32,8 +32,8 @@ public class Files {
             writer.write(information.get(i).getName() + " " +
                     information.get(i).getLocation() + " " + information.get(i).getItemsNumber() + "\n");
 
-            for(int t=0;t<information.get(i).getItemsNumber();t++){
-                writer.write(information.get(i).getItems().get(t)+"\n");
+            for (int t = 0; t < information.get(i).getItemsNumber(); t++) {
+                writer.write(information.get(i).getItems().get(t) + "\n");
             }
 
         }
@@ -43,13 +43,13 @@ public class Files {
     public static void readCafesFile() throws IOException {
         Scanner reader = new Scanner(new File("cafes.txt"));
         while (reader.hasNextLine()) {
-            String[] temp=reader.nextLine().split(" ");
-            Cafe cafe =new Cafe();
+            String[] temp = reader.nextLine().split(" ");
+            Cafe cafe = new Cafe();
             cafe.setName(temp[0]);
             cafe.setLocation(temp[1]);
             cafe.setItemsNumber(Integer.parseInt(temp[2]));
-            ArrayList<String>items=new ArrayList<>();
-            for(int i=0;i<cafe.getItemsNumber();i++){
+            ArrayList<String> items = new ArrayList<>();
+            for (int i = 0; i < cafe.getItemsNumber(); i++) {
                 items.add(reader.nextLine());
             }
             cafe.setItems(items);
@@ -65,8 +65,8 @@ public class Files {
             writer.write(information.get(i).getName() + " " +
                     information.get(i).getLocation() + " " + information.get(i).getItemsNumber() + "\n");
 
-            for(int t=0;t<information.get(i).getItemsNumber();t++){
-                writer.write(information.get(i).getItems().get(t)+"\n");
+            for (int t = 0; t < information.get(i).getItemsNumber(); t++) {
+                writer.write(information.get(i).getItems().get(t) + "\n");
             }
 
         }
@@ -119,6 +119,37 @@ public class Files {
             writer.write(information.get(i).getName() + " " + information.get(i).getLastName() + " "
                     + information.get(i).getPhoneNumber() + " " + information.get(i).getEmail()
                     + " " + information.get(i).getPassword() + "\n");
+        }
+        writer.close();
+    }
+
+    public static void readOrdersFile() throws IOException {
+        Scanner reader = new Scanner(new File("orders.txt"));
+        while (reader.hasNextLine()) {
+            String[] temp = reader.nextLine().split(" ");
+            Order order = new Order();
+            order.setPlaceName(temp[0]);
+            order.setUserEmail(temp[1]);
+            order.setOrderStatus(Order.orderStatus.valueOf(temp[2]));
+            order.setItemsNumber(Integer.parseInt(temp[3]));
+            ArrayList<String> items = new ArrayList<>();
+            for (int i = 0; i < order.getItemsNumber(); i++) {
+                items.add(reader.nextLine());
+            }
+            order.setItems(items);
+            Information.setOrderInformation(order);
+        }
+        reader.close();
+    }
+
+    public static void writeOrdersInFile(ArrayList<Order> information) throws IOException {
+        FileWriter writer = new FileWriter("orders.txt");
+        for (int i = 0; i < information.size(); i++) {
+            writer.write(information.get(i).getPlaceName() + " " + information.get(i).getUserEmail() +
+                    " " + information.get(i).getOrderStatus() + " " + information.get(i).getItemsNumber() + "\n");
+            for (int t = 0; t < information.get(i).getItemsNumber(); t++) {
+                writer.write(information.get(i).getItems().get(t) + "\n");
+            }
         }
         writer.close();
     }

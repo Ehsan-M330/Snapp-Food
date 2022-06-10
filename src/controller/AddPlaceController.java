@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import model.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -27,10 +28,11 @@ public class AddPlaceController extends Helper {
     @FXML
     TextField itemName, itemPrice, placeName, placeLocation;
     @FXML
-    Label itemLabel,type1Label,type2Label,type3Label,titleLabel, placeLabel;
+    Label itemLabel, type1Label, type2Label, type3Label, titleLabel, placeLabel;
 
     TypeOfPlace typeOfPlace;
-    ArrayList<String> items=new ArrayList<>();
+    ArrayList<String> items = new ArrayList<>();
+
     public void start(TypeOfPlace typeOfPlace) {
         this.typeOfPlace = typeOfPlace;
         if (typeOfPlace.equals(TypeOfPlace.RESTAURANT)) {
@@ -61,7 +63,7 @@ public class AddPlaceController extends Helper {
             itemLabel.setText("Use correct format for Price");
             itemLabel.setTextFill(Color.RED);
         } else {
-            Label label=new Label( itemName.getText() + "   " + itemPrice.getText()+" $");
+            Label label = new Label(itemName.getText() + "   " + itemPrice.getText() + " $");
             label.setTextAlignment(TextAlignment.CENTER);
             label.setFont(Font.font(15));
             HBox hBox = new HBox(label);
@@ -70,30 +72,30 @@ public class AddPlaceController extends Helper {
                 switch (choiceBox.getValue()) {
                     case "Fast Foods":
                         type1.getChildren().add(hBox);
-                        items.add(RestaurantItems.FAST_FOODS+" "+itemName.getText()+" "+itemPrice.getText());
+                        items.add(RestaurantItems.FAST_FOODS + " " + itemName.getText() + " " + itemPrice.getText());
                         break;
                     case "Iranian Foods":
                         type2.getChildren().add(hBox);
-                        items.add(RestaurantItems.IRANIAN_FOODS+" "+itemName.getText()+" "+itemPrice.getText());
+                        items.add(RestaurantItems.IRANIAN_FOODS + " " + itemName.getText() + " " + itemPrice.getText());
                         break;
                     case "Drinks":
                         type3.getChildren().add(hBox);
-                        items.add(RestaurantItems.DRINKS+" "+itemName.getText()+" "+itemPrice.getText());
+                        items.add(RestaurantItems.DRINKS + " " + itemName.getText() + " " + itemPrice.getText());
                 }
 
             } else {
                 switch (choiceBox.getValue()) {
                     case "Foods":
                         type1.getChildren().add(hBox);
-                        items.add(CafeItems.FOODS +" "+itemName.getText()+" "+itemPrice.getText());
+                        items.add(CafeItems.FOODS + " " + itemName.getText() + " " + itemPrice.getText());
                         break;
                     case "Desserts":
                         type2.getChildren().add(hBox);
-                        items.add(CafeItems.DESSERTS +" "+itemName.getText()+" "+itemPrice.getText());
+                        items.add(CafeItems.DESSERTS + " " + itemName.getText() + " " + itemPrice.getText());
                         break;
                     case "Drinks":
                         type3.getChildren().add(hBox);
-                        items.add(CafeItems.DRINKS +" "+itemName.getText()+" "+itemPrice.getText());
+                        items.add(CafeItems.DRINKS + " " + itemName.getText() + " " + itemPrice.getText());
                 }
             }
             itemLabel.setText("Item added");
@@ -101,29 +103,29 @@ public class AddPlaceController extends Helper {
         }
     }
 
-    public void done(ActionEvent event) throws IOException{
-        if(!isUserUseCorrectForm(placeName.getText())){
+    public void done(ActionEvent event) throws IOException {
+        if (!isUserUseCorrectForm(placeName.getText())) {
             placeLabel.setText("Use correct format for Name");
             placeLabel.setTextFill(Color.RED);
-        }else if(!isUserUseCorrectForm(placeLocation.getText())){
+        } else if (!isUserUseCorrectForm(placeLocation.getText())) {
             placeLabel.setText("Use correct format for Location");
             placeLabel.setTextFill(Color.RED);
-        }else if(items.size()==0){
+        } else if (items.size() == 0) {
             placeLabel.setText("First add some items");
             placeLabel.setTextFill(Color.RED);
-        }else{
+        } else {
             //check for unrepeated name
-            ArrayList<Restaurant>restaurants=Information.getRestaurantsInformation();
-            ArrayList<Cafe>cafes=Information.getCafesInformation();
-            for(int i=0;i<restaurants.size();i++){
-                if(placeName.getText().equals(restaurants.get(i).getName())){
+            ArrayList<Restaurant> restaurants = Information.getRestaurantsInformation();
+            ArrayList<Cafe> cafes = Information.getCafesInformation();
+            for (int i = 0; i < restaurants.size(); i++) {
+                if (placeName.getText().equals(restaurants.get(i).getName())) {
                     placeLabel.setText("This name have been used");
                     placeLabel.setTextFill(Color.RED);
                     return;
                 }
             }
-            for(int i=0;i<cafes.size();i++){
-                if(placeName.getText().equals(cafes.get(i).getName())){
+            for (int i = 0; i < cafes.size(); i++) {
+                if (placeName.getText().equals(cafes.get(i).getName())) {
                     placeLabel.setText("This name have been used");
                     placeLabel.setTextFill(Color.RED);
                     return;
@@ -131,8 +133,8 @@ public class AddPlaceController extends Helper {
             }
 
             //add place
-            if(typeOfPlace.equals(TypeOfPlace.RESTAURANT)){
-                Restaurant restaurant=new Restaurant();
+            if (typeOfPlace.equals(TypeOfPlace.RESTAURANT)) {
+                Restaurant restaurant = new Restaurant();
                 restaurant.setName(placeName.getText());
                 restaurant.setLocation(placeLocation.getText());
                 restaurant.setItemsNumber(items.size());
@@ -140,8 +142,8 @@ public class AddPlaceController extends Helper {
                 Information.setRestaurantInformation(restaurant);
                 placeLabel.setText("Restaurant added");
                 placeLabel.setTextFill(Color.GREEN);
-            }else{
-                Cafe cafe=new Cafe();
+            } else {
+                Cafe cafe = new Cafe();
                 cafe.setName(placeName.getText());
                 cafe.setLocation(placeLocation.getText());
                 cafe.setItemsNumber(items.size());
@@ -154,7 +156,7 @@ public class AddPlaceController extends Helper {
             type1.getChildren().removeAll(type1.getChildren());
             type2.getChildren().removeAll(type2.getChildren());
             type3.getChildren().removeAll(type3.getChildren());
-            ArrayList<String> items=new ArrayList<>();
+            items = new ArrayList<>();
             itemLabel.setText("");
             itemPrice.setText("");
             itemName.setText("");
@@ -163,9 +165,10 @@ public class AddPlaceController extends Helper {
         }
     }
 
-    public boolean moneyRegex(String str){
-        return Pattern.matches("[0-9]{1,3}(\\.[0-9]{1,2})?",str);
+    public boolean moneyRegex(String str) {
+        return Pattern.matches("[0-9]{1,3}(\\.[0-9]{1,2})?", str);
     }
+
     public boolean isUserUseCorrectForm(String str) {
         return Pattern.matches("[0-9-a-z-A-Z]{4,}", str);
     }
@@ -176,10 +179,10 @@ public class AddPlaceController extends Helper {
 
     @Override
     public void back(ActionEvent event) throws IOException {
-        FXMLLoader loader =new FXMLLoader(getClass().getResource("..\\view\\adminPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("..\\view\\adminPage.fxml"));
         loader.load();
         getStage().setScene(new Scene(loader.getRoot()));
-        AdminPageController adminPageController=loader.getController();
+        AdminPageController adminPageController = loader.getController();
         adminPageController.setStage(getStage());
     }
 }
