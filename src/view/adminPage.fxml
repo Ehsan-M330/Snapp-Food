@@ -2,40 +2,118 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminPageController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0073ff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminPageController">
    <children>
-      <Button layoutX="50.0" layoutY="40.0" mnemonicParsing="false" onAction="#back" text="back" />
-      <VBox alignment="TOP_CENTER" layoutX="161.0" layoutY="100.0" prefHeight="200.0" prefWidth="278.0">
+      <Button fx:id="backbutton" layoutX="20.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" onMouseEntered="#Style1" prefHeight="58.0" prefWidth="67.0" style="-fx-background-color: #0073ff;" textFill="#0073ff" />
+      <VBox alignment="TOP_CENTER" layoutX="161.0" layoutY="149.0" prefHeight="194.0" prefWidth="290.0">
          <children>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addRestaurant" prefHeight="30.0" prefWidth="150.0" text="Add Restaurant" />
+                  <Button fx:id="addRestaurantbutton" mnemonicParsing="false" onAction="#addRestaurant" onMouseEntered="#Style2" prefHeight="38.0" prefWidth="159.0" text="Add Restaurant">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant>
+                                 <color>
+                                    <Color red="0.20000000298023224" green="1.0" />
+                                 </color>
+                              </Light.Distant>
+                           </light>
+                        </Lighting>
+                     </effect>
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
+               <effect>
+                  <DropShadow height="30.0" radius="15.75" spread="0.2" width="35.0" />
+               </effect>
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addCafe" prefHeight="30.0" prefWidth="150.0" text="Add Cafe" />
+                  <Button fx:id="addCafebutton" mnemonicParsing="false" onAction="#addCafe" onMouseEntered="#Style3" prefHeight="34.0" prefWidth="163.0" text="Add Cafe">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant>
+                                 <color>
+                                    <Color red="1.0" green="0.7109137177467346" />
+                                 </color>
+                              </Light.Distant>
+                           </light>
+                        </Lighting>
+                     </effect></Button>
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
+               <effect>
+                  <DropShadow height="33.75" radius="16.6875" spread="0.32" width="35.0" />
+               </effect>
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addDelivery" prefHeight="30.0" prefWidth="150.0" text="Add Delivery" />
+                  <Button fx:id="addDeliverybutton" mnemonicParsing="false" onAction="#addDelivery" onMouseEntered="#Style4" prefHeight="34.0" prefWidth="160.0" text="Add Delivery">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant>
+                                 <color>
+                                    <Color red="1.0" />
+                                 </color>
+                              </Light.Distant>
+                           </light>
+                        </Lighting>
+                     </effect></Button>
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
+               <effect>
+                  <DropShadow height="32.5" radius="16.375" spread="0.31" width="35.0" />
+               </effect>
             </HBox>
          </children>
       </VBox>
+      <ImageView fitHeight="122.0" fitWidth="163.0" layoutX="245.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/images/Admin.png" />
+         </image>
+      </ImageView>
+      <ImageView disable="true" fitHeight="80.0" fitWidth="67.0" layoutX="20.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/images/back.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

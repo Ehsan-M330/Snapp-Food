@@ -11,9 +11,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="411.0" prefWidth="299.0" style="-fx-background-color: #03353e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FirstPageController">
+<AnchorPane prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #03353e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FirstPageController">
    <children>
-      <ImageView fitHeight="132.0" fitWidth="138.0" layoutY="-12.0">
+      <ImageView fitHeight="191.0" fitWidth="173.0" layoutY="-12.0">
          <image>
             <Image url="@/resources/images/Snap-Food-1.png" />
          </image>
@@ -42,7 +42,7 @@
             <Image url="@/resources/images/Exit.png" />
          </image>
       </ImageView>
-      <Button fx:id="loginbutton" layoutX="74.0" layoutY="206.0" mnemonicParsing="false" onAction="#login" onMouseEntered="#Style1" prefHeight="30.0" prefWidth="150.0" text="Login" AnchorPane.bottomAnchor="165.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="74.6">
+      <Button fx:id="loginbutton" layoutX="108.0" layoutY="206.0" mnemonicParsing="false" onAction="#login" onMouseEntered="#Style1" prefHeight="40.0" prefWidth="188.0" text="Login" AnchorPane.bottomAnchor="165.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="104.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -61,7 +61,7 @@
             </Lighting>
          </effect>
       </Button>
-      <Button fx:id="registerbutton" layoutX="74.0" layoutY="265.0" mnemonicParsing="false" onAction="#register" onMouseEntered="#Style2" prefHeight="30.0" prefWidth="150.0" text="Register" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="74.6">
+      <Button fx:id="registerbutton" layoutX="109.0" layoutY="265.0" mnemonicParsing="false" onAction="#register" onMouseEntered="#Style2" prefHeight="40.0" prefWidth="188.0" text="Register" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="109.0" AnchorPane.rightAnchor="103.0">
          <font>
             <Font size="18.0" />
          </font>
