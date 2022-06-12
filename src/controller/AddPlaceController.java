@@ -4,10 +4,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.Effect;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -22,6 +27,27 @@ import java.util.regex.Pattern;
 public class AddPlaceController extends Helper {
 
     @FXML
+    private ImageView Error;
+
+    @FXML
+    private ImageView Error1;
+
+    @FXML
+    private ImageView Tck;
+
+    @FXML
+    private ImageView Tck1;
+
+    @FXML
+    private Button addbutton;
+
+    @FXML
+    private Button backbutton;
+
+    @FXML
+    private Button donebutton;
+
+    @FXML
     ChoiceBox<String> choiceBox;
     @FXML
     VBox type1, type2, type3;
@@ -32,6 +58,26 @@ public class AddPlaceController extends Helper {
 
     TypeOfPlace typeOfPlace;
     ArrayList<String> items = new ArrayList<>();
+
+    @FXML
+    void Style1(MouseEvent event) {
+        backbutton.setCursor(Cursor.HAND);
+    }
+
+    @FXML
+    void Style2(MouseEvent event) {
+        addbutton.setCursor(Cursor.HAND);
+    }
+
+    @FXML
+    void Style3(MouseEvent event) {
+        donebutton.setCursor(Cursor.HAND);
+    }
+
+    @FXML
+    void Style4(MouseEvent event) {
+        choiceBox.setCursor(Cursor.HAND);
+    }
 
     public void start(TypeOfPlace typeOfPlace) {
         this.typeOfPlace = typeOfPlace;
@@ -59,26 +105,33 @@ public class AddPlaceController extends Helper {
         if (!isUserUseCorrectForm(itemName.getText())) {
             itemLabel.setText("Use correct format for Name");
             itemLabel.setTextFill(Color.RED);
+            Error.setVisible(true);
+            Tck.setVisible(false);
         } else if (!moneyRegex(itemPrice.getText())) {
             itemLabel.setText("Use correct format for Price");
             itemLabel.setTextFill(Color.RED);
+            Error.setVisible(true);
+            Tck.setVisible(false);
         } else {
             Label label = new Label(itemName.getText() + "   " + itemPrice.getText() + " $");
             label.setTextAlignment(TextAlignment.CENTER);
-            label.setFont(Font.font(15));
+            label.setFont(Font.font(22));
             HBox hBox = new HBox(label);
             hBox.setAlignment(Pos.CENTER);
             if (typeOfPlace.equals(TypeOfPlace.RESTAURANT)) {
                 switch (choiceBox.getValue()) {
                     case "Fast Foods":
+                        label.setTextFill(Color.valueOf("#00f21c"));
                         type1.getChildren().add(hBox);
                         items.add(RestaurantItems.FAST_FOODS + " " + itemName.getText() + " " + itemPrice.getText());
                         break;
                     case "Iranian Foods":
+                    label.setTextFill(Color.valueOf("#2100ff"));
                         type2.getChildren().add(hBox);
                         items.add(RestaurantItems.IRANIAN_FOODS + " " + itemName.getText() + " " + itemPrice.getText());
                         break;
                     case "Drinks":
+                        label.setTextFill(Color.valueOf("#00dbff"));
                         type3.getChildren().add(hBox);
                         items.add(RestaurantItems.DRINKS + " " + itemName.getText() + " " + itemPrice.getText());
                 }
@@ -100,6 +153,8 @@ public class AddPlaceController extends Helper {
             }
             itemLabel.setText("Item added");
             itemLabel.setTextFill(Color.GREEN);
+            Error.setVisible(false);
+            Tck.setVisible(true);
         }
     }
 
@@ -107,12 +162,18 @@ public class AddPlaceController extends Helper {
         if (!isUserUseCorrectForm(placeName.getText())) {
             placeLabel.setText("Use correct format for Name");
             placeLabel.setTextFill(Color.RED);
+            Error1.setVisible(true);
+            Tck1.setVisible(false);
         } else if (!isUserUseCorrectForm(placeLocation.getText())) {
             placeLabel.setText("Use correct format for Location");
             placeLabel.setTextFill(Color.RED);
+            Error1.setVisible(true);
+            Tck1.setVisible(false);
         } else if (items.size() == 0) {
             placeLabel.setText("First add some items");
             placeLabel.setTextFill(Color.RED);
+            Error1.setVisible(true);
+            Tck1.setVisible(false);
         } else {
             //check for unrepeated name
             ArrayList<Restaurant> restaurants = Information.getRestaurantsInformation();
@@ -121,6 +182,8 @@ public class AddPlaceController extends Helper {
                 if (placeName.getText().equals(restaurants.get(i).getName())) {
                     placeLabel.setText("This name have been used");
                     placeLabel.setTextFill(Color.RED);
+                    Error1.setVisible(true);
+                    Tck1.setVisible(false);
                     return;
                 }
             }
@@ -128,6 +191,8 @@ public class AddPlaceController extends Helper {
                 if (placeName.getText().equals(cafes.get(i).getName())) {
                     placeLabel.setText("This name have been used");
                     placeLabel.setTextFill(Color.RED);
+                    Error1.setVisible(true);
+                    Tck1.setVisible(false);
                     return;
                 }
             }
@@ -142,6 +207,8 @@ public class AddPlaceController extends Helper {
                 Information.setRestaurantInformation(restaurant);
                 placeLabel.setText("Restaurant added");
                 placeLabel.setTextFill(Color.GREEN);
+                Error1.setVisible(false);
+                Tck1.setVisible(true);
             } else {
                 Cafe cafe = new Cafe();
                 cafe.setName(placeName.getText());
@@ -151,6 +218,8 @@ public class AddPlaceController extends Helper {
                 Information.setCafeInformation(cafe);
                 placeLabel.setText("Cafe added");
                 placeLabel.setTextFill(Color.GREEN);
+                Error1.setVisible(false);
+                Tck1.setVisible(true);
             }
             //clear page
             type1.getChildren().removeAll(type1.getChildren());
@@ -162,6 +231,7 @@ public class AddPlaceController extends Helper {
             itemName.setText("");
             placeName.setText("");
             placeLocation.setText("");
+            Tck.setVisible(false);
         }
     }
 
