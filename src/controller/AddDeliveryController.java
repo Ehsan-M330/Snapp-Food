@@ -3,9 +3,11 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import model.Customer;
 import model.Delivery;
@@ -21,22 +23,54 @@ public class AddDeliveryController extends Helper {
     @FXML
     Label label;
 
+    @FXML
+    private ImageView Error;
+
+    @FXML
+    private ImageView Tick;
+
+    @FXML
+    private Button addbuton;
+
+    @FXML
+    private Button backbutton;
+
+    @FXML
+    void Style1(MouseEvent event) {
+        backbutton.setCursor(Cursor.HAND);
+    }
+
+    @FXML
+    void Style2(MouseEvent event) {
+        addbuton.setCursor(Cursor.HAND);
+    }
+
     public void add(ActionEvent event) throws IOException {
         if (!isUserUseCorrectForm(name.getText())) {
             label.setText("incorrect Name...");
             label.setTextFill(Color.RED);
+            Tick.setVisible(false);
+            Error.setVisible(true);
         } else if (!isUserUseCorrectForm(lastName.getText())) {
             label.setText("incorrect Last Name...");
             label.setTextFill(Color.RED);
+            Tick.setVisible(false);
+            Error.setVisible(true);
         } else if (!isPhoneNumberCorrect(phoneNumber.getText())) {
             label.setText("incorrect Phone Number...");
             label.setTextFill(Color.RED);
+            Tick.setVisible(false);
+            Error.setVisible(true);
         } else if (!isEmailCorrect(email.getText())) {
             label.setText("invalid Email...");
             label.setTextFill(Color.RED);
+            Tick.setVisible(false);
+            Error.setVisible(true);
         } else if (!isUserUseCorrectForm(password.getText())) {
             label.setText("incorrect Password...");
             label.setTextFill(Color.RED);
+            Tick.setVisible(false);
+            Error.setVisible(true);
         } else {
             //check for unrepeated email
             ArrayList<Customer> customers = Information.getCustomersInformation();
@@ -46,6 +80,8 @@ public class AddDeliveryController extends Helper {
                 if (customers.get(i).getEmail().equals(email.getText())) {
                     label.setText("This Email not available");
                     label.setTextFill(Color.RED);
+                    Tick.setVisible(false);
+                    Error.setVisible(true);
                     return;
                 }
             }
@@ -54,11 +90,15 @@ public class AddDeliveryController extends Helper {
                 if (deliveries.get(i).getEmail().equals(email.getText())) {
                     label.setText("This Email not available");
                     label.setTextFill(Color.RED);
+                    Tick.setVisible(false);
+                    Error.setVisible(true);
                     return;
                 }
             }
             label.setText("Added");
-            label.setTextFill(Color.GREEN);
+            label.setTextFill(Color.BLUE);
+            Tick.setVisible(true);
+            Error.setVisible(false);
 
             //add new delivery
             Delivery delivery = new Delivery();
