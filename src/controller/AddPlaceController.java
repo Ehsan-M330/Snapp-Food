@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -126,7 +127,7 @@ public class AddPlaceController extends Helper {
                         items.add(RestaurantItems.FAST_FOODS + " " + itemName.getText() + " " + itemPrice.getText());
                         break;
                     case "Iranian Foods":
-                    label.setTextFill(Color.valueOf("#2100ff"));
+                        label.setTextFill(Color.valueOf("#2100ff"));
                         type2.getChildren().add(hBox);
                         items.add(RestaurantItems.IRANIAN_FOODS + " " + itemName.getText() + " " + itemPrice.getText());
                         break;
@@ -140,14 +141,17 @@ public class AddPlaceController extends Helper {
                 switch (choiceBox.getValue()) {
                     case "Foods":
                         type1.getChildren().add(hBox);
+                        label.setTextFill(Color.valueOf("#00f21c"));
                         items.add(CafeItems.FOODS + " " + itemName.getText() + " " + itemPrice.getText());
                         break;
                     case "Desserts":
                         type2.getChildren().add(hBox);
+                        label.setTextFill(Color.valueOf("#2100ff"));
                         items.add(CafeItems.DESSERTS + " " + itemName.getText() + " " + itemPrice.getText());
                         break;
                     case "Drinks":
                         type3.getChildren().add(hBox);
+                        label.setTextFill(Color.valueOf("#00dbff"));
                         items.add(CafeItems.DRINKS + " " + itemName.getText() + " " + itemPrice.getText());
                 }
             }
