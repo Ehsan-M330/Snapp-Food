@@ -25,7 +25,7 @@ public class LoginController extends Helper {
     PasswordField password;
     @FXML
     Label label;
-
+ 
     @FXML
     private ImageView ErrorIcon;
 

@@ -74,7 +74,6 @@ public class ChooseItemsController extends Helper {
     public void start(Customer customer, Cafe cafe) throws NullPointerException {
         this.customer = customer;
         placeName = cafe.getName();
-        totalPrice = customer.getMoney();
         type1Label.setText("Foods");
         type2Label.setText("Desserts");
         type3Label.setText("Drinks");

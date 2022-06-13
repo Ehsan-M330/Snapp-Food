@@ -19,12 +19,19 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="622.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPlaceController">
+<AnchorPane prefHeight="622.0" prefWidth="782.0" style="-fx-background-color: #ffaf00;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPlaceController">
    <children>
-      <Label fx:id="titleLabel" alignment="CENTER" layoutX="315.0" layoutY="24.0" prefHeight="35.0" prefWidth="150.0">
+      <Label fx:id="titleLabel" alignment="CENTER" layoutX="285.0" layoutY="24.0" prefHeight="35.0" prefWidth="180.0" textFill="#dc0000">
          <font>
-            <Font size="18.0" />
-         </font></Label>
+            <Font size="24.0" />
+         </font>
+         <effect>
+            <DropShadow height="59.07" radius="22.439999999999998" spread="0.75" width="32.69">
+               <color>
+                  <Color red="0.012280701659619808" green="0.7368420958518982" />
+               </color>
+            </DropShadow>
+         </effect></Label>
       <VBox alignment="TOP_CENTER" layoutX="56.0" layoutY="381.0" prefHeight="150.0" prefWidth="242.0">
          <children>
             <TextField fx:id="placeName" prefHeight="30.0" prefWidth="230.0" promptText="Name">
@@ -46,11 +53,11 @@
                      </color>
                   </DropShadow>
                </effect></TextField>
-            <Label fx:id="placeLabel" alignment="CENTER" prefHeight="30.0" prefWidth="230.0">
+            <Label fx:id="placeLabel" alignment="CENTER" prefHeight="29.0" prefWidth="230.0">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></Label>
-            <Button mnemonicParsing="false" onAction="#done" prefHeight="30.0" prefWidth="97.0" text="Done">
+            <Button fx:id="donebutton" mnemonicParsing="false" onAction="#done" onMouseEntered="#Style3" prefHeight="30.0" prefWidth="97.0" text="Done">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -74,10 +81,10 @@
             </Button>
          </children>
       </VBox>
-      <Button layoutX="24.0" layoutY="23.0" mnemonicParsing="false" onAction="#back" prefHeight="43.0" prefWidth="51.0" text="back" />
+      <Button fx:id="backbutton" layoutX="24.0" layoutY="23.0" mnemonicParsing="false" onAction="#back" onMouseEntered="#Style1" prefHeight="43.0" prefWidth="51.0" style="-fx-background-color: #ffaf00;" />
       <VBox alignment="CENTER" layoutX="56.0" layoutY="111.0" prefHeight="200.0" prefWidth="242.0">
          <children>
-            <ChoiceBox fx:id="choiceBox" prefHeight="27.0" prefWidth="150.0">
+            <ChoiceBox fx:id="choiceBox" onMouseEntered="#Style4" prefHeight="27.0" prefWidth="150.0">
                <effect>
                   <Lighting>
                      <bumpInput>
@@ -91,11 +98,28 @@
                         </Light.Distant>
                      </light>
                   </Lighting>
-               </effect></ChoiceBox>
+               </effect>
+            </ChoiceBox>
             <HBox prefHeight="29.0" prefWidth="242.0">
                <children>
-                  <TextField fx:id="itemName" prefHeight="30.0" prefWidth="150.0" promptText="name" />
-                  <TextField fx:id="itemPrice" prefHeight="30.0" prefWidth="100.0" promptText="price ($)" />
+                  <TextField fx:id="itemName" prefHeight="30.0" prefWidth="150.0" promptText="name">
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color green="0.6833333373069763" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </TextField>
+                  <TextField fx:id="itemPrice" prefHeight="30.0" prefWidth="100.0" promptText="price ($)">
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color green="0.6666666865348816" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </TextField>
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
@@ -103,7 +127,7 @@
                <effect>
                   <DropShadow height="45.0" radius="22.0" width="45.0">
                      <color>
-                        <Color red="1.0" green="0.6861250996589661" />
+                        <Color green="0.6666666865348816" blue="1.0" />
                      </color>
                   </DropShadow>
                </effect>
@@ -113,7 +137,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="62.0" text="Add">
+            <Button fx:id="addbutton" mnemonicParsing="false" onAction="#add" onMouseEntered="#Style2" prefHeight="31.0" prefWidth="74.0" text="Add">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -125,7 +149,7 @@
                      <light>
                         <Light.Distant>
                            <color>
-                              <Color green="1.0" blue="0.9962775707244873" />
+                              <Color green="1.0" blue="0.9960784316062927" />
                            </color>
                         </Light.Distant>
                      </light>
@@ -139,26 +163,21 @@
       </VBox>
       <ImageView disable="true" fitHeight="56.0" fitWidth="62.0" layoutX="19.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../resources/images/images.jpg" />
+            <Image url="@../resources/images/back.png" />
          </image>
       </ImageView>
-      <VBox alignment="TOP_CENTER" layoutX="315.0" layoutY="60.0" prefHeight="543.0" prefWidth="440.0">
+      <VBox alignment="TOP_CENTER" layoutX="315.0" layoutY="79.0" prefHeight="524.0" prefWidth="440.0">
          <children>
-            <Label alignment="CENTER" prefWidth="150.0" text="List">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
             <HBox alignment="CENTER" prefHeight="150.0" prefWidth="385.0" spacing="10.0">
                <children>
-                  <Label fx:id="type1Label" alignment="CENTER" prefHeight="30.0" prefWidth="100.0">
+                  <Label fx:id="type1Label" alignment="CENTER" prefHeight="30.0" prefWidth="105.0" textFill="RED">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="19.0" />
                      </font>
                   </Label>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="150.0" prefWidth="300.0">
                      <content>
-                        <VBox fx:id="type1" alignment="TOP_CENTER" prefHeight="148.0" prefWidth="300.0" spacing="20.0" />
+                        <VBox fx:id="type1" alignment="TOP_CENTER" prefHeight="163.0" prefWidth="300.0" spacing="20.0" styleClass="root" stylesheets="@../resources/Style/Style1.css" />
                      </content>
                   </ScrollPane>
                </children>
@@ -168,14 +187,14 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="150.0" prefWidth="385.0" spacing="10.0">
                <children>
-                  <Label fx:id="type2Label" alignment="CENTER" prefHeight="30.0" prefWidth="100.0">
+                  <Label fx:id="type2Label" alignment="CENTER" prefHeight="30.0" prefWidth="107.0" textFill="#0048ff">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="19.0" />
                      </font>
                   </Label>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="150.0" prefWidth="300.0">
                      <content>
-                        <VBox fx:id="type2" alignment="TOP_CENTER" prefHeight="148.0" prefWidth="300.0" spacing="20.0" />
+                        <VBox fx:id="type2" alignment="TOP_CENTER" prefHeight="153.0" prefWidth="300.0" spacing="20.0" styleClass="root" stylesheets="@../resources/Style/Style2.css" />
                      </content>
                   </ScrollPane>
                </children>
@@ -185,14 +204,14 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="150.0" prefWidth="440.0" spacing="10.0">
                <children>
-                  <Label fx:id="type3Label" alignment="CENTER" prefHeight="30.0" prefWidth="100.0">
+                  <Label fx:id="type3Label" alignment="CENTER" prefHeight="30.0" prefWidth="106.0" textFill="#9900ff">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="19.0" />
                      </font>
                   </Label>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="150.0" prefWidth="300.0">
                      <content>
-                        <VBox fx:id="type3" alignment="TOP_CENTER" prefHeight="148.0" prefWidth="300.0" spacing="20.0" />
+                        <VBox fx:id="type3" alignment="TOP_CENTER" prefHeight="148.0" prefWidth="300.0" spacing="20.0" styleClass="root" stylesheets="@../resources/Style/Style3.css" />
                      </content>
                   </ScrollPane>
                </children>
@@ -202,9 +221,49 @@
             </HBox>
          </children>
       </VBox>
+      <ImageView disable="true" fitHeight="35.0" fitWidth="34.0" layoutX="14.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/images/location.png" />
+         </image>
+      </ImageView>
+      <ImageView disable="true" fitHeight="111.0" fitWidth="150.0" layoutX="122.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/images/food-png.png" />
+         </image>
+      </ImageView>
+      <ImageView disable="true" fitHeight="35.0" fitWidth="62.0" layoutX="14.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/images/restaurant-icon.png" />
+         </image>
+      </ImageView>
+      <ImageView disable="true" fitHeight="68.0" fitWidth="56.0" layoutX="559.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/images/list-icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Error" disable="true" fitHeight="35.0" fitWidth="62.0" layoutX="14.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../resources/images/error-48266.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Tck" disable="true" fitHeight="35.0" fitWidth="62.0" layoutX="14.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../resources/images/tick.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Tck1" disable="true" fitHeight="31.0" fitWidth="34.0" layoutX="14.0" layoutY="465.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../resources/images/tick.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Error1" disable="true" fitHeight="35.0" fitWidth="62.0" layoutX="14.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../resources/images/error-48266.png" />
+         </image>
+      </ImageView>
    </children>
    <effect>
-      <InnerShadow choke="0.52" height="45.0" radius="22.0" width="45.0">
+      <InnerShadow choke="0.52" height="85.0" radius="42.0" width="85.0">
          <color>
             <Color red="0.9666666388511658" green="1.0" />
          </color>
