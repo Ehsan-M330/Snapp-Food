@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -21,6 +22,9 @@ public class ChooseItemsController extends Helper {
     VBox type1, type2, type3, list;
     @FXML
     Label totalPriceLabel, type1Label, type2Label, type3Label, orderLabel;
+
+    @FXML
+    private ImageView tick;
 
     ArrayList<String> orderList = new ArrayList<>();
     double totalPrice = 0;
