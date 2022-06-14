@@ -83,6 +83,7 @@ public class Files {
             customer.setPhoneNumber(temp[2]);
             customer.setEmail(temp[3]);
             customer.setPassword(temp[4]);
+            customer.setMoney(Double.parseDouble(temp[5]));
             Information.setCustomerInformation(customer);
         }
         reader.close();
