@@ -5,11 +5,15 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import model.Information;
 import model.Order;
 
@@ -20,19 +24,32 @@ public class DeliveryPageController extends Helper {
     @FXML
     VBox vBox;
 
+    @FXML
+    private Button backbutton;
+
+    @FXML
+    void Style(MouseEvent event) {
+        backbutton.setCursor(Cursor.HAND);
+    }
+
     public void start() {
         ArrayList<Order> orders = Information.getOrdersInformation();
         int i = 0;
         for (; i < orders.size(); i++) {
             if (orders.get(i).getOrderStatus().equals(Order.orderStatus.NOT_DELIVERED)) {
                 Button button = new Button("Deliver");
+                button.setStyle("-fx-background-color : #00b115");
                 Label label = new Label("Customer : " + orders.get(i).getUserEmail() + " | Place : " +
                         orders.get(i).getPlaceName() + " | Items Number : " + orders.get(i).getItemsNumber());
+                label.setTextFill(Color.RED);
                 VBox tempVBox = new VBox();
                 tempVBox.setSpacing(10);
                 tempVBox.setAlignment(Pos.CENTER);
                 for (int t = 0; t < orders.get(i).getItemsNumber(); t++) {
-                    tempVBox.getChildren().add(new Label(orders.get(i).getItems().get(t)));
+                    Label label1 =new Label(orders.get(i).getItems().get(t));
+                    label1.setFont(Font.font(15));
+                    label1.setTextFill(Color.PURPLE);
+                    tempVBox.getChildren().add(label1);
                 }
                 HBox hBox = new HBox();
                 hBox.setAlignment(Pos.CENTER);
@@ -47,8 +64,9 @@ public class DeliveryPageController extends Helper {
                         orders.get(temp).setOrderStatus(Order.orderStatus.DELIVERED);
                     }
                 });
-                vBox.getChildren().addAll(hBox, tempVBox, new Label("-------------------------------------"));
-
+                Label label2 = new Label("-------------------------------------");
+                label2.setTextFill(Color.RED);
+                vBox.getChildren().addAll(hBox, tempVBox,label2 );
             }
         }
         if (i == 0) {
