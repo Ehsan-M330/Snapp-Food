@@ -49,7 +49,7 @@
                                        <font>
                                           <Font size="15.0" />
                                        </font></TextField>
-                                    <ImageView fitHeight="37.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="37.0" fitWidth="36.0" onMouseClicked="#Send1" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../resources/images/Send.png" />
                                        </image>

@@ -18,6 +18,8 @@ import model.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Random;
 import java.util.regex.Pattern;
 
 public class CustomerPageController extends Helper {
@@ -171,6 +173,17 @@ public class CustomerPageController extends Helper {
 
     public void setMoneyLabel() {
         moneyLabel.setText(Double.toString(customer.getMoney()));
+    }
+
+    @FXML
+    void Send1(MouseEvent event) {
+        SendEmail send = new SendEmail();
+        Random random = new Random();
+        int Code = random.nextInt(1000) + 5000 ;
+        if (!Objects.equals(frinedTextField.getText(), null)) {
+            String body = "Hi Dear , You have Invitation Code from "+customer.getName()+" "+customer.getLastName()+": " + Integer.toString(Code); 
+            send.Send(frinedTextField.getText(), "Invitation", body);
+        }
     }
 
     @Override
