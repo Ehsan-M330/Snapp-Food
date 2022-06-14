@@ -4,10 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -26,10 +28,29 @@ public class ChooseItemsController extends Helper {
     @FXML
     private ImageView tick;
 
+    @FXML
+    private Button backbutton;
+
+    @FXML
+    private ImageView Error;
+
+    @FXML
+    private Button orderbutton;
+
     ArrayList<String> orderList = new ArrayList<>();
     double totalPrice = 0;
     Customer customer;
     String placeName;
+
+    @FXML
+    void Styl1(MouseEvent event) {
+        backbutton.setCursor(Cursor.HAND);
+    }
+
+    @FXML
+    void Styl2(MouseEvent event) {
+        orderbutton.setCursor(Cursor.HAND);
+    }
 
     public void start(Customer customer, Restaurant restaurant) throws NullPointerException {
         this.customer = customer;
@@ -43,7 +64,9 @@ public class ChooseItemsController extends Helper {
             String[] itemInformation = restaurant.getItems().get(i).split(" ");
             String item = itemInformation[1] + "  " + itemInformation[2] + " $";
             Button button = new Button(item);
-            button.setFont(Font.font(15));
+            button.setFont(Font.font(18));
+            button.setTextFill(Color.RED);
+            button.setStyle("-fx-background-color : #07d100");
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
@@ -51,6 +74,9 @@ public class ChooseItemsController extends Helper {
                     showPrice();
                     orderList.add(item);
                     Button button1 = new Button(item);
+                    button1.setStyle("-fx-background-color : #a90000");
+                    button1.setTextFill(Color.GREEN);
+                    button1.setFont(Font.font(18));
                     list.getChildren().add(button1);
                     //button for remove item
                     button1.setOnAction(new EventHandler<ActionEvent>() {
@@ -126,14 +152,20 @@ public class ChooseItemsController extends Helper {
         if(orderList.size()==0){
             orderLabel.setText("First choose an Item");
             orderLabel.setTextFill(Color.RED);
+            tick.setVisible(false);
+            Error.setVisible(true);
         }
         else if (customer.getMoney() < totalPrice) {
             orderLabel.setText("You don't have enough money");
             orderLabel.setTextFill(Color.RED);
+            tick.setVisible(false);
+            Error.setVisible(true);
         } else {
             customer.setMoney(customer.getMoney() - totalPrice);
             orderLabel.setText("Ordered");
             orderLabel.setTextFill(Color.GREEN);
+            tick.setVisible(true);
+            Error.setVisible(false);
             Order order = new Order();
             order.setPlaceName(placeName);
             order.setUserEmail(customer.getEmail());
